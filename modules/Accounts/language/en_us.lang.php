@@ -83,7 +83,6 @@ $mod_strings = array (
 	'LBL_BILLING_ADDRESS_STREET' => 'Billing Street:',
 	'LBL_BILLING_ADDRESS' => 'Billing Address:',
 	'LBL_BUG_FORM_TITLE' => 'Accounts',
-	'LBL_BUGS_SUBPANEL_TITLE' => 'Bugs',
 	'LBL_CALLS_SUBPANEL_TITLE' => 'Calls',
 	'LBL_CAMPAIGN_ID' => 'Campaign ID',
 	'LBL_CASES_SUBPANEL_TITLE' => 'Cases',

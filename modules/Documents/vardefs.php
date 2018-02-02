@@ -284,14 +284,6 @@ $dictionary['Document'] = array('table' => 'documents',
                 'source' => 'non-db',
                 'vname' => 'LBL_CASES_SUBPANEL_TITLE',
             ),
-        'bugs' =>
-            array(
-                'name' => 'bugs',
-                'type' => 'link',
-                'relationship' => 'documents_bugs',
-                'source' => 'non-db',
-                'vname' => 'LBL_BUGS_SUBPANEL_TITLE',
-            ),
         'related_doc_id' =>
             array(
                 'name' => 'related_doc_id',

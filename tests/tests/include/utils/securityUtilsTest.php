@@ -19,7 +19,6 @@ class security_utilsTest extends PHPUnit_Framework_TestCase
                 'Calendar' => 'Calendar',
                 'Documents' => 'Documents',
                 'Emails' => 'Emails',
-                'Spots' => 'Spots',
                 'Campaigns' => 'Campaigns',
                 'Calls' => 'Calls',
                 'Meetings' => 'Meetings',
@@ -32,15 +31,9 @@ class security_utilsTest extends PHPUnit_Framework_TestCase
                 'ProspectLists' => 'ProspectLists',
                 'Project' => 'Project',
                 'AM_ProjectTemplates' => 'AM_ProjectTemplates',
-                'FP_events' => 'FP_events',
-                'FP_Event_Locations' => 'FP_Event_Locations',
                 'AOS_Products' => 'AOS_Products',
                 'AOS_Product_Categories' => 'AOS_Product_Categories',
                 'AOS_PDF_Templates' => 'AOS_PDF_Templates',
-                'jjwg_Maps' => 'jjwg_Maps',
-                'jjwg_Markers' => 'jjwg_Markers',
-                'jjwg_Areas' => 'jjwg_Areas',
-                'jjwg_Address_Cache' => 'jjwg_Address_Cache',
                 'AOR_Reports' => 'AOR_Reports',
                 'AOW_WorkFlow' => 'AOW_WorkFlow',
                 'AOK_KnowledgeBase' => 'AOK_KnowledgeBase',
@@ -76,7 +69,6 @@ class security_utilsTest extends PHPUnit_Framework_TestCase
         //execute the method and test it it returns expected contents
 
         $expected = array(
-                'Bugs' => 'Bugs',
                 'ResourceCalendar' => 'ResourceCalendar',
 				'AOBH_BusinessHours' => 'AOBH_BusinessHours',
                 'AOR_Scheduled_Reports' => 'AOR_Scheduled_Reports',

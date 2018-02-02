@@ -201,16 +201,6 @@ for($i = 0; $i < $number_companies; $i++) {
 	$case->assigned_user_name = $account->assigned_user_name;
 	$case->save();
 
-	// Create a bug for the account
-	$bug = new Bug();
-	$bug->account_id = $account->id;
-	$bug->priority = array_rand($app_list_strings['bug_priority_dom']);
-	$bug->status = array_rand($app_list_strings['bug_status_dom']);
-	$bug->name = $sugar_demodata['bug_seed_names'][mt_rand(0,4)];
-	$bug->assigned_user_id = $account->assigned_user_id;
-	$bug->assigned_user_name = $account->assigned_user_name;
-	$bug->save();
-
 	$note = new Note();
 	$note->parent_type = 'Accounts';
 	$note->parent_id = $account->id;

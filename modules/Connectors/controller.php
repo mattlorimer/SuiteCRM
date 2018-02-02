@@ -517,34 +517,6 @@ class ConnectorsController extends SugarController {
 
 			} //foreach
 
-			if ($id == 'ext_rest_twitter' || $id == 'ext_rest_facebook') {
-
-
-				$full_list = array_keys($mapping['beans']);
-
-				$new_modules = array_diff($full_list, $mapped_modules);
-
-				if (count($new_modules) > 0) {
-
-					foreach ($new_modules as $module) {
-
-						$field_name = substr($id, 9) . '_user_c';
-
-						$bean = BeanFactory::newBean($module);
-
-						if (!isset($bean->$field_name)) {
-
-							$this->add_social_field($module, $field_name);
-
-						}
-
-					}
-				}
-				unset($bean);
-
-			}
-
-
 			//Now write the new mapping entry to the custom folder
 			$dir = $connectors[$id]['directory'];
 			if (!preg_match('/^custom\//', $dir)) {
@@ -703,42 +675,6 @@ class ConnectorsController extends SugarController {
 		}
 	    $json = getJSONobj();
 	    echo $json->encode($results);
-	}
-
-	function add_social_field($module, $field_name)
-	{
-
-
-		$field = array(
-				array(
-						'name' => $field_name,
-						'label' => 'LBL_' . strtoupper($field_name),
-						'type' => 'varchar',
-						'module' => $module,
-						'ext1' => 'LIST',
-						'default_value' => '',
-						'mass_update' => false,
-						'required' => false,
-						'reportable' => false,
-						'audited' => false,
-						'importable' => 'false',
-						'duplicate_merge' => false,
-				)
-		);
-
-		$layout[$module] = $field_name;
-
-		require_once('ModuleInstall/ModuleInstaller.php');
-		$moduleInstaller = new ModuleInstaller();
-		$moduleInstaller->install_custom_fields($field);
-		//$moduleInstaller->addFieldsToLayout($layout);
-
-
-		$this->create_panel_on_view('detailview', $field, $module, 'LBL_PANEL_SOCIAL_FEED');
-		/* now add it to the edit view. */
-		$this->create_panel_on_view('editview', $field, $module, 'LBL_PANEL_SOCIAL_FEED');
-
-
 	}
 
 	private function create_panel_on_view($view, $field, $module, $panel_name){

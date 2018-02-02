@@ -101,7 +101,6 @@ $mod_strings = array(
     'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
     'LBL_OPPORTUNITIES_SUBPANEL_TITLE' => 'Opportunities',
     'LBL_CASES_SUBPANEL_TITLE' => 'Cases',
-    'LBL_BUGS_SUBPANEL_TITLE' => 'Bugs',
     'LBL_PRODUCTS_SUBPANEL_TITLE' => 'Products',
     'LBL_TASK_ID' => 'ID',
     'LBL_TASK_NAME' => 'Task Name',

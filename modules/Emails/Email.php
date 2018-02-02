@@ -2516,10 +2516,6 @@ class Email extends SugarBean {
 					$email_fields['CREATE_RELATED'] = '<a href="index.php?module=Contacts&action=EditView&inbound_email_id='.$this->id.'" >'.SugarThemeRegistry::current()->getImage('CreateContacts', 'border="0"', null, null, ".gif", $mod_strings['LBL_CREATE_CONTACTS']).$mod_strings['LBL_CREATE_CONTACT'].'</a>';
 				break;
 
-				case 'bug':
-					$email_fields['CREATE_RELATED'] = '<a href="index.php?module=Bugs&action=EditView&inbound_email_id='.$this->id.'" >'.SugarThemeRegistry::current()->getImage('CreateBugs', 'border="0"', null, null, ".gif", $mod_strings['LBL_CREATE_BUGS']).$mod_strings['LBL_CREATE_BUG'].'</a>';
-				break;
-
 				case 'task':
 					$email_fields['CREATE_RELATED'] = '<a href="index.php?module=Tasks&action=EditView&inbound_email_id='.$this->id.'" >'.SugarThemeRegistry::current()->getImage('CreateTasks', 'border="0"', null, null, ".gif", $mod_strings['LBL_CREATE_TASKS']).$mod_strings['LBL_CREATE_TASK'].'</a>';
 				break;

@@ -78,16 +78,6 @@ class RenameModules
             array('name' => 'LBL_PROSPECT_LIST', 'type' => 'singular', 'source' => 'Prospects'),
             array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Accounts'),
         ),
-        'Bugs' => array(
-            array('name' => 'LBL_LIST_FORM_TITLE', 'type' => 'singular', 'source' => 'Bugs'),
-            array('name' => 'LBL_LIST_MY_BUGS', 'type' => 'plural', 'source' => 'Bugs'),
-            array('name' => 'LBL_SEARCH_FORM_TITLE', 'type' => 'singular', 'source' => 'Bugs'),
-            array('name' => 'LNK_BUG_LIST', 'type' => 'plural', 'source' => 'Bugs'),
-            array('name' => 'LNK_BUG_REPORTS', 'type' => 'singular', 'source' => 'Bugs'),
-            array('name' => 'LNK_IMPORT_BUGS', 'type' => 'plural', 'source' => 'Bugs'),
-            array('name' => 'LNK_NEW_BUG', 'type' => 'singular', 'source' => 'Bugs'),
-            array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Bugs'),
-        ),
         'Calls' => array(
             array('name' => 'LBL_LIST_CONTACT', 'type' => 'singular', 'source' => 'Contacts'),
             array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Calls'),
@@ -103,12 +93,10 @@ class RenameModules
             array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Campaigns'),
         ),
         'Cases' => array(
-            array('name' => 'LBL_BUGS_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Bugs'),
             array('name' => 'LBL_LIST_ACCOUNT_NAME', 'type' => 'singular', 'source' => 'Accounts'),
             array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Cases'),
         ),
         'Contacts' => array(
-            array('name' => 'LBL_BUGS_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Bugs'),
             array('name' => 'LBL_CAMPAIGN_LIST_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Campaigns'),
             array('name' => 'LBL_CONTRACTS', 'type' => 'plural', 'source' => 'Contracts'),
             array('name' => 'LBL_LIST_ACCOUNT_NAME', 'type' => 'singular', 'source' => 'Accounts'),
@@ -135,7 +123,6 @@ class RenameModules
             array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'Contracts'),
         ),
         'Documents' => array(
-            array('name' => 'LBL_BUGS_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Bugs'),
             array('name' => 'LBL_CONTRACTS', 'type' => 'plural', 'source' => 'Contracts'),
             array('name' => 'LBL_CONTRACT_NAME', 'type' => 'singular', 'source' => 'Contracts'),
             array('name' => 'LBL_CONTRACT_STATUS', 'type' => 'singular', 'source' => 'Contracts'),
@@ -233,7 +220,6 @@ class RenameModules
             array('name' => 'LBL_MODULE_NAME', 'type' => 'plural', 'source' => 'ProjectTask'),
         ),
         'Project' => array(
-            array('name' => 'LBL_BUGS_SUBPANEL_TITLE', 'type' => 'plural', 'source' => 'Bugs'),
             array('name' => 'LBL_CONTACTS_RESOURCE', 'type' => 'singular', 'source' => 'Contacts'),
             array('name' => 'LBL_LIST_FORM_TITLE', 'type' => 'singular', 'source' => 'Projects'),
             array('name' => 'LBL_OPPORTUNITIES', 'type' => 'plural', 'source' => 'Opportunities'),

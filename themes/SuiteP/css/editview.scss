@@ -1192,6 +1192,7 @@ p.error {
 
 .error {
   border: none;
+  line-height: 30px;
 }
 
 .error:empty {
@@ -4501,10 +4502,7 @@ object {
   margin-bottom: 3px;
 }
 
-#use_resolution {
-  padding: 8px;
-  margin-top: 4px;
-}
+
 
 #additional_info_p {
   margin-bottom: 4px;

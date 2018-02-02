@@ -124,6 +124,5 @@ $mod_strings = array(
     'LBL_POST_TITLE' => 'Post Status Update for ',
     'LBL_URL_LINK_TITLE' => 'URL Link to use',
     'LBL_TEAM_VISIBILITY_TITLE' => 'team that can see this post',
-    'LBL_SOCIAL' => 'Social',
 );
 ?>

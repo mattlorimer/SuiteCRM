@@ -141,20 +141,6 @@ $layout_defs['Emails'] = array(
                 array('widget_class' => 'SubPanelTopSelectButton', 'mode' => 'MultiSelect')
             ),
         ),
-        'bugs' => array(
-            'order' => 60,
-            'module' => 'Bugs',
-            'sort_order' => 'desc',
-            'sort_by' => 'bug_number',
-            'subpanel_name' => 'ForEmails',
-            'get_subpanel_data' => 'bugs',
-            'add_subpanel_data' => 'bug_id',
-            'title_key' => 'LBL_BUGS_SUBPANEL_TITLE',
-            'top_buttons' => array(
-                array('widget_class' => 'SubPanelTopCreateButton'),
-                array('widget_class' => 'SubPanelTopSelectButton', 'mode' => 'MultiSelect')
-            ),
-        ),
 
 
         'project' => array(

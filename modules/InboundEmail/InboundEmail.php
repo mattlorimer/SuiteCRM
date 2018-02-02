@@ -2734,9 +2734,6 @@ class InboundEmail extends SugarBean {
 			case 'support':
 				$this->handleCaseAssignment($email);
 				break;
-			case 'bug':
-
-				break;
 
 			case 'info':
 				// do something with this?

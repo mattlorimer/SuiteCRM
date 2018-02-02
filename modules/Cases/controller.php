@@ -50,13 +50,17 @@ class CasesController extends SugarController
         global $mod_strings;
         global $app_list_strings;
         $search = trim($_POST['search']);
+        $search = preg_replace('/\s+/', ' ', $search);
 
         $relevanceCalculation = "CASE WHEN name LIKE '$search' THEN 10 
                                 ELSE 0 END + CASE WHEN name LIKE '%$search%' THEN 5 
                                 ELSE 0 END + CASE WHEN description LIKE '%$search%' THEN 2 ELSE 0 END";
 
-        $query = "SELECT id, $relevanceCalculation AS relevance FROM aok_knowledgebase 
-                  WHERE deleted = '0' AND $relevanceCalculation > 0 ORDER BY relevance DESC";
+        $query = "SELECT id, aok_knowledgebase.name, description, status, $relevanceCalculation AS relevance
+                  FROM aok_knowledgebase
+                  WHERE deleted = '0' AND status LIKE \"published_%\" AND $relevanceCalculation > 0 AND '".$search."' != ''
+                  GROUP BY id, aok_knowledgebase.name, description, status
+                  ORDER BY relevance DESC";
 
         $offset = 0;
         $limit = 30;
@@ -100,7 +104,15 @@ class CasesController extends SugarController
             echo '<hr id="tool-tip-separator">';
             echo '<span class="tool-tip-title"><strong>' . $mod_strings['LBL_TOOL_TIP_INFO'] . '</strong></span><p id="additional_info_p">' . $article->additional_info . '</p>';
             echo '<span class="tool-tip-title"><strong>' . $mod_strings['LBL_TOOL_TIP_USE'] . '</strong></span><br />';
-            echo '<input id="use_resolution" name="use_resolution" class="button" type="button" value="' . $mod_strings['LBL_RESOLUTION_BUTTON'] . '" />';
+
+            $appliedBtns = $_POST['appliedBtns'];
+            if(!$appliedBtns) {
+                throw new \Exception('target field buttons are not defined');
+            }
+
+            foreach($appliedBtns as $btn) {
+                echo '<input id="use_'.$btn.'" name="use_'.$btn.'" class="button" type="button" value="' . $mod_strings['LBL_'.strtoupper($btn).'_BUTTON'] . '" />';
+            }
         }
 
         die();

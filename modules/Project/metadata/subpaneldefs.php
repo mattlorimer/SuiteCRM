@@ -231,19 +231,6 @@ $layout_defs['Project'] = array(
             'add_subpanel_data' => 'case_id',
             'title_key' => 'LBL_CASES_SUBPANEL_TITLE',
         ),
-        'bugs' => array(
-            'top_buttons' => array(
-                array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'Bugs'),
-            ),
-            'order' => 120,
-            'module' => 'Bugs',
-            'sort_order' => 'desc',
-            'sort_by' => 'bug_number',
-            'subpanel_name' => 'default',
-            'get_subpanel_data' => 'bugs',
-            'add_subpanel_data' => 'bug_id',
-            'title_key' => 'LBL_BUGS_SUBPANEL_TITLE',
-        ),
         'aos_quotes_project' => array(
             'order' => 100,
             'module' => 'AOS_Quotes',

@@ -56,7 +56,7 @@ $moduleList[] = 'Contacts';
 $moduleList[] = 'Accounts';
 $moduleList[] = 'Opportunities';
 
-$moduleList[] = 'Emails';
+//$moduleList[] = 'Emails';
 $moduleList[] = 'Campaigns';
 $moduleList[] = 'Prospects';
 $moduleList[] = 'ProspectLists';
@@ -64,12 +64,8 @@ $moduleList[] = 'ProspectLists';
 $moduleList[] = 'Documents';
 $moduleList[] = 'Cases';
 $moduleList[] = 'Project';
-$moduleList[] = 'Bugs';
 $moduleList[] = 'ResourceCalendar';
 $moduleList[] = 'AOBH_BusinessHours';
-
-
-$moduleList[] = 'Spots';
 
 // this list defines all of the module names and bean names in the app
 // to create a new module's bean class, add the bean definition here
@@ -80,7 +76,6 @@ $beanList['ACLActions'] = 'ACLAction';
 //END ACL OBJECTS
 $beanList['Leads'] = 'Lead';
 $beanList['Cases'] = 'aCase';
-$beanList['Bugs'] = 'Bug';
 $beanList['ProspectLists'] = 'ProspectList';
 $beanList['Prospects'] = 'Prospect';
 $beanList['Project'] = 'Project';
@@ -89,7 +84,6 @@ $beanList['Campaigns'] = 'Campaign';
 $beanList['EmailMarketing'] = 'EmailMarketing';
 $beanList['CampaignLog'] = 'CampaignLog';
 $beanList['CampaignTrackers'] = 'CampaignTracker';
-$beanList['Releases'] = 'Release';
 $beanList['Groups'] = 'Group';
 $beanList['EmailMan'] = 'EmailMan';
 $beanList['Schedulers'] = 'Scheduler';
@@ -135,8 +129,6 @@ $beanList['EmailAddresses'] = 'EmailAddress';
 $beanList['EmailText'] = 'EmailText';
 $beanList['Relationships'] = 'Relationship';
 $beanList['Employees'] = 'Employee';
-
-$beanList['Spots'] = 'Spots';
 $beanList['AOBH_BusinessHours'] = 'AOBH_BusinessHours';
 
 // this list defines all of the files that contain the SugarBean class definitions from $beanList
@@ -149,7 +141,6 @@ $beanFiles['Relationship'] = 'modules/Relationships/Relationship.php';
 
 $beanFiles['Lead'] = 'modules/Leads/Lead.php';
 $beanFiles['aCase'] = 'modules/Cases/Case.php';
-$beanFiles['Bug'] = 'modules/Bugs/Bug.php';
 $beanFiles['Group'] = 'modules/Groups/Group.php';
 $beanFiles['CampaignLog'] = 'modules/CampaignLog/CampaignLog.php';
 $beanFiles['Project'] = 'modules/Project/Project.php';
@@ -160,7 +151,6 @@ $beanFiles['Prospect'] = 'modules/Prospects/Prospect.php';
 
 $beanFiles['EmailMarketing'] = 'modules/EmailMarketing/EmailMarketing.php';
 $beanFiles['CampaignTracker'] = 'modules/CampaignTrackers/CampaignTracker.php';
-$beanFiles['Release'] = 'modules/Releases/Release.php';
 $beanFiles['EmailMan'] = 'modules/EmailMan/EmailMan.php';
 
 $beanFiles['Scheduler'] = 'modules/Schedulers/Scheduler.php';
@@ -204,8 +194,6 @@ $beanFiles['EmailAddress'] = 'modules/EmailAddresses/EmailAddress.php';
 $beanFiles['EmailText'] = 'modules/EmailText/EmailText.php';
 
 $beanFiles['Configurator'] = 'modules/Configurator/Configurator.php';
-
-$beanFiles['Spots'] = 'modules/Spots/Spots.php';
 $beanFiles['AOBH_BusinessHours'] = 'modules/AOBH_BusinessHours/AOBH_BusinessHours.php';
 
 
@@ -214,7 +202,7 @@ $modInvisList = array('Administration', 'Currencies', 'CustomFields', 'Connector
     'Dropdown', 'Dynamic', 'DynamicFields', 'DynamicLayout', 'EditCustomFields',
     'Help', 'Import', 'MySettings', 'EditCustomFields', 'FieldsMetaData',
     'UpgradeWizard', 'Trackers', 'Connectors', 'Employees', 'Calendar',
-    'Releases', 'Sync',
+    'Sync',
     'Users', 'Versions', 'LabelEditor', 'Roles', 'EmailMarketing', 'OptimisticLock', 'TeamMemberships', 'TeamSets', 'TeamSetModule', 'Audit', 'MailMerge', 'MergeRecords', 'EmailAddresses', 'EmailText',
     'Schedulers', 'Schedulers_jobs', /*'Queues', 'EmailTemplates',*/
     'CampaignTrackers', 'CampaignLog', 'EmailMan', 'Prospects', 'ProspectLists',
@@ -334,24 +322,6 @@ $beanFiles['Reminder_Invitee'] = 'modules/Reminders_Invitees/Reminder_Invitee.ph
 $modInvisList[] = 'Reminders_Invitees';
 $modules_exempt_from_availability_check['Reminders_Invitees'] = 'Reminder_Invitee';
 
-$beanList['FP_events'] = 'FP_events';
-$beanFiles['FP_events'] = 'modules/FP_events/FP_events.php';
-$moduleList[] = 'FP_events';
-$beanList['FP_Event_Locations'] = 'FP_Event_Locations';
-$beanFiles['FP_Event_Locations'] = 'modules/FP_Event_Locations/FP_Event_Locations.php';
-$moduleList[] = 'FP_Event_Locations';
-
-$beanList['AOD_IndexEvent'] = 'AOD_IndexEvent';
-$beanFiles['AOD_IndexEvent'] = 'modules/AOD_IndexEvent/AOD_IndexEvent.php';
-$modules_exempt_from_availability_check['AOD_IndexEvent'] = 'AOD_IndexEvent';
-$report_include_modules['AOD_IndexEvent'] = 'AOD_IndexEvent';
-$modInvisList[] = 'AOD_IndexEvent';
-$beanList['AOD_Index'] = 'AOD_Index';
-$beanFiles['AOD_Index'] = 'modules/AOD_Index/AOD_Index.php';
-$modules_exempt_from_availability_check['AOD_Index'] = 'AOD_Index';
-$report_include_modules['AOD_Index'] = 'AOD_Index';
-$modInvisList[] = 'AOD_Index';
-
 $beanList['AOP_Case_Events'] = 'AOP_Case_Events';
 $beanFiles['AOP_Case_Events'] = 'modules/AOP_Case_Events/AOP_Case_Events.php';
 $modules_exempt_from_availability_check['AOP_Case_Events'] = 'AOP_Case_Events';
@@ -432,19 +402,6 @@ $beanFiles['AOW_Condition'] = 'modules/AOW_Conditions/AOW_Condition.php';
 $modules_exempt_from_availability_check['AOW_Conditions'] = 'AOW_Conditions';
 $report_include_modules['AOW_Conditions'] = 'AOW_Conditions';
 $modInvisList[] = 'AOW_Conditions';
-
-$beanList['jjwg_Maps'] = 'jjwg_Maps';
-$beanFiles['jjwg_Maps'] = 'modules/jjwg_Maps/jjwg_Maps.php';
-$moduleList[] = 'jjwg_Maps';
-$beanList['jjwg_Markers'] = 'jjwg_Markers';
-$beanFiles['jjwg_Markers'] = 'modules/jjwg_Markers/jjwg_Markers.php';
-$moduleList[] = 'jjwg_Markers';
-$beanList['jjwg_Areas'] = 'jjwg_Areas';
-$beanFiles['jjwg_Areas'] = 'modules/jjwg_Areas/jjwg_Areas.php';
-$moduleList[] = 'jjwg_Areas';
-$beanList['jjwg_Address_Cache'] = 'jjwg_Address_Cache';
-$beanFiles['jjwg_Address_Cache'] = 'modules/jjwg_Address_Cache/jjwg_Address_Cache.php';
-$moduleList[] = 'jjwg_Address_Cache';
 
 $beanList['Calls_Reschedule'] = 'Calls_Reschedule';
 $beanFiles['Calls_Reschedule'] = 'modules/Calls_Reschedule/Calls_Reschedule.php';

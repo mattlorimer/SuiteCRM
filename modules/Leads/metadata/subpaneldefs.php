@@ -195,27 +195,6 @@ $layout_defs['Leads'] = array(
             'subpanel_name' => 'ForTargets',
             'title_key' => 'LBL_CAMPAIGN_LIST_SUBPANEL_TITLE',
         ),
-        'fp_events_leads_1' => array(
-            'order' => 100,
-            'module' => 'FP_events',
-            'subpanel_name' => 'default',
-            'sort_order' => 'asc',
-            'sort_by' => 'id',
-            'title_key' => 'LBL_FP_EVENTS_LEADS_1_FROM_FP_EVENTS_TITLE',
-            'get_subpanel_data' => 'fp_events_leads_1',
-            'top_buttons' =>
-                array(
-                    0 =>
-                        array(
-                            'widget_class' => 'SubPanelTopButtonQuickCreate',
-                        ),
-                    1 =>
-                        array(
-                            'widget_class' => 'SubPanelTopSelectButton',
-                            'mode' => 'MultiSelect',
-                        ),
-                ),
-        ),
         'securitygroups' => array(
             'top_buttons' => array(array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'SecurityGroups', 'mode' => 'MultiSelect'),),
             'order' => 900,

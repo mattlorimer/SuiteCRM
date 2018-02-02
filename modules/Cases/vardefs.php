@@ -260,13 +260,6 @@ $dictionary['Case'] = array(
             'source' => 'non-db',
             'vname' => 'LBL_CALLS',
         ),
-        'bugs' => array(
-            'name' => 'bugs',
-            'type' => 'link',
-            'relationship' => 'cases_bugs',
-            'source' => 'non-db',
-            'vname' => 'LBL_BUGS',
-        ),
         'contacts' => array(
             'name' => 'contacts',
             'type' => 'link',

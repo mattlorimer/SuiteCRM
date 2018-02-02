@@ -55,7 +55,6 @@ class mvc_utilsTest extends PHPUnit_Framework_TestCase
                 'EmailMarketing',
                 'CampaignLog',
                 'CampaignTrackers',
-                'Releases',
                 'Groups',
                 'EmailMan',
                 "Administration",

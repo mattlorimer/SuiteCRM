@@ -25,7 +25,7 @@ $page-font-family: 'Lato', Lato, Arial, sans-serif;
 $page-font-size: 13px;
 $page-p-size: 14px;
 $page-title-space: 40px; // normal 40px
-$main-font-color: #534D64;
+$main-font-color: #196579;
 
 $link-color: $danger;
 $link-color-hover: $danger-hover;
@@ -40,7 +40,7 @@ $footer-btn-bg: #ddd;
 $scroll-bar-thumb-color: rgba(165, 232, 214, 1);
 
 // Login
-$login-top-bar-bg: #534D64;
+$login-top-bar-bg: #196579;
 
 
 // Buttons
@@ -69,10 +69,10 @@ $disabled-btn-bg: #777777;
 
 
 // Navbar
-$navbar-bg: #534D64;
+$navbar-bg: #196579;
 $navbar-link-color: #FFFFFF;
 $navbar-link-color-hover: #F08377;
-$navbar-main-menu-bg: #5D5670;
+$navbar-main-menu-bg: #48808f;
 $navbar-menu-link-color: #FFFFFF;
 $navbar-menu-link-color-hover: #F08377;
 $navbar-menu-seperator: #757083;
@@ -95,7 +95,7 @@ $navbar-quick-create-btn-bg-hover: $navbar-quick-create-menu-bg;
 $navbar-alert-count-link-color: #FFFFFF;
 $navbar-alert-link-color: #FFFFFF;
 $navbar-alert-body-color: #000000;
-$navbar-alert-title-bg: #5D5670;
+$navbar-alert-title-bg: #48808f;
 $navbar-alert-seperator: $navbar-menu-seperator;
 $navbar-alert-count-bg: #F08377;
 
@@ -203,13 +203,13 @@ $campaign-progression-bg-active: #808F9C;
 
 // Cases
 $case-internal-bg: #a5e6e6;
-$case-internal-color: #534D64;
+$case-internal-color: #196579;
 $case-internal-border-color: transparent;
 $case-user-bg: #BBE6A5;
-$case-user-color: #534D64;
+$case-user-color: #196579;
 $case-user-border-color: transparent;
 $case-contact-bg: #E6D5A5;
-$case-contact-color: #534D64;
+$case-contact-color: #196579;
 $case-contact-border-color: transparent;
 
 // Calendar
@@ -230,7 +230,7 @@ $calendar-other-month-day-header-color-hover: #F08377;
 $qtip-font-size: 12px;
 $qtip-btn-color: #F5F5F5;
 $qtip-btn-hover: #B29Eb5;
-$qtip-title-bg: #5D5670;
+$qtip-title-bg: #48808f;
 $qtip-title-color: #F5F5F5;
 $qtip-content-bg: #65697A;
 $qtip-content-color: #F5F5F5;

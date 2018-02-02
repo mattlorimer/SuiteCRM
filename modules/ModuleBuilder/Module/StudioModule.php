@@ -75,9 +75,7 @@ class StudioModule
      */
     function getModuleName()
     {
-    	$modules_with_odd_names = array(
-    	'Bugs'=>'Bugs'
-    	);
+    	$modules_with_odd_names = array();
     	if ( isset ( $modules_with_odd_names [ $this->name ] ) )
     		return ( $modules_with_odd_names [ $this->name ] ) ;
 
@@ -120,8 +118,7 @@ class StudioModule
 
     	// If a standard module then just look up its type - type is implicit for standard modules. Perhaps one day we will make it explicit, just as we have done for custom modules...
 		$types = array (
-		'Accounts' => 'company' , 
-		'Bugs' => 'issue' , 
+		'Accounts' => 'company' ,
 		'Cases' => 'issue' , 
 		'Contacts' => 'person' , 
 		'Documents' => 'file' , 

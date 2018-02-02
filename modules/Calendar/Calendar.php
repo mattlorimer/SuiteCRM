@@ -48,8 +48,7 @@ require_once('modules/Calendar/CalendarActivity.php');
 
 class Calendar {
 
-	public $activityList = array("FP_events" => array("showCompleted" => true,"start" =>  "date_start", "end" => "date_end"),
-								 "Meetings" => array("showCompleted" => true,"start" =>  "date_start", "end" => "date_end"),
+	public $activityList = array("Meetings" => array("showCompleted" => true,"start" =>  "date_start", "end" => "date_end"),
 								 "Calls" => array("showCompleted" => true,"start" =>  "date_start", "end" => "date_end"),
 								 "Tasks" => array("showCompleted" => true,"start" =>  "date_due", "end" => "date_due"),
 //								 "ProjectTask" => array("showCompleted" => true,"start" =>  "date_start", "end" => "date_finish"),

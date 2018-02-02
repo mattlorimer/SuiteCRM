@@ -168,27 +168,6 @@ $layout_defs['Prospects'] = array(
             'title_key' => 'LBL_CAMPAIGN_LIST_SUBPANEL_TITLE',
             'top_buttons' => array(),
         ),
-        'fp_events_prospects_1' => array(
-            'order' => 101,
-            'module' => 'FP_events',
-            'subpanel_name' => 'default',
-            'sort_order' => 'asc',
-            'sort_by' => 'id',
-            'title_key' => 'LBL_FP_EVENTS_PROSPECTS_1_FROM_FP_EVENTS_TITLE',
-            'get_subpanel_data' => 'fp_events_prospects_1',
-            'top_buttons' =>
-                array(
-                    0 =>
-                        array(
-                            'widget_class' => 'SubPanelTopButtonQuickCreate',
-                        ),
-                    1 =>
-                        array(
-                            'widget_class' => 'SubPanelTopSelectButton',
-                            'mode' => 'MultiSelect',
-                        ),
-                ),
-        ),
         'securitygroups' => array(
             'top_buttons' => array(array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'SecurityGroups', 'mode' => 'MultiSelect'),),
             'order' => 900,

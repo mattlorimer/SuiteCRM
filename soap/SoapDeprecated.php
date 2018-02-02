@@ -295,12 +295,6 @@ function add_contacts_matching_email_address(&$output_list, $email_address, &$se
 			$output_list[] = get_case_array($case, $msi_id);
 		}
 
-		$bugs = $contact->get_linked_beans('bugs','Bug');
-		foreach($bugs as $bug)
-		{
-			$output_list[] = get_bean_array($bug, $msi_id, 'Bug');
-		}
-
 		$projects = $contact->get_linked_beans('project','Project');
 		foreach($projects as $project)
 		{
@@ -393,12 +387,6 @@ function get_contact_relationships($user_name, $password, $id)
 		foreach($cases as $case)
 		{
 			$output_list[] = get_case_array($case, $msi_id);
-		}
-
-		$bugs = $seed_contact->get_linked_beans('bugs','Bug');
-		foreach($bugs as $bug)
-		{
-			$output_list[] = get_bean_array($bug, $msi_id, 'Bug');
 		}
 
 		$projects = $seed_contact->get_linked_beans('project','Project');
@@ -723,28 +711,6 @@ function get_case_array($value, $msi_id){
 
 }
 
-function bug_by_search($name, $where = '', $msi_id='0')
-{
-	$seed = new Bug();
-	if(!$seed->ACLAccess('ListView')){
-		return array();
-	}
-	if($where == ''){
-		$where = $seed->build_generic_where_clause($name);
-	}
-	$response = $seed->get_list("name", $where, 0);
-	$list = $response['list'];
-
-	$output_list = Array();
-
-	// create a return array of names and email addresses.
-	foreach($list as $value)
-	{
-		$output_list[] = get_bean_array($value, $msi_id, 'Bug');
-	}
-	return $output_list;
-}
-
 function case_by_search($name, $where = '', $msi_id='0')
 {
 	$seed = new aCase();
@@ -963,7 +929,6 @@ function search($user_name, $password,$name){
 	    $list = array_merge($list, account_by_search($single_name));
 	    $list = array_merge($list, case_by_search($single_name));
 	    $list = array_merge($list, opportunity_by_search($single_name));
-	    $list = array_merge($list, bug_by_search($single_name));
     }
 	return $list;
 }

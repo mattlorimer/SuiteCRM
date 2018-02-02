@@ -40,47 +40,6 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 $portal_modules = array('Contacts', 'Accounts', 'Notes');
 $portal_modules[] = 'Cases';
-$portal_modules[] = 'Bugs';
-
-
-/*
-BUGS
-*/
-
-
-
-
-
-function get_bugs_in_contacts($in, $orderBy = '')
-    {
-        //bail if the in is empty
-        if(empty($in)  || $in =='()' || $in =="('')")return;
-        // First, get the list of IDs.
-
-        $query = "SELECT bug_id as id from contacts_bugs where contact_id IN $in AND deleted=0";
-        if(!empty($orderBy)){
-            $query .= ' ORDER BY ' . $orderBy;
-        }
-
-        $sugar = new Contact();
-        set_module_in($sugar->build_related_in($query), 'Bugs');
-    }
-
-function get_bugs_in_accounts($in, $orderBy = '')
-    {
-        //bail if the in is empty
-        if(empty($in)  || $in =='()' || $in =="('')")return;
-        // First, get the list of IDs.
-
-        $query = "SELECT bug_id as id from accounts_bugs where account_id IN $in AND deleted=0";
-        if(!empty($orderBy)){
-            $query .= ' ORDER BY ' . $orderBy;
-        }
-
-        $sugar = new Account();
-
-        set_module_in($sugar->build_related_in($query), 'Bugs');
-    }
 
 /*
 Cases
@@ -407,24 +366,6 @@ function portal_get_entry_list_limited($session, $module_name,$where, $order_by,
     }else if($module_name == 'Accounts'){
             $sugar = new Account();
             $list =  get_related_list(get_module_in($module_name), new Account(), $where,$order_by);
-    }else if($module_name == 'Bugs'){
-
-        //if the related bugs have not yet been loaded into the session object,
-        //then call the methods that will load the bugs related to the contact/accounts for this user
-            if(!isset($_SESSION['viewable'][$module_name])){
-                //retrieve the contact/account id's for this user
-                $c =get_contacts_in();
-                $a = get_accounts_in();
-                if(!empty($c)) {get_bugs_in_contacts($c);}
-                if(!empty($a)) {get_bugs_in_accounts($a);}
-            }
-
-        $list = array();
-        //if no Bugs have been loaded into the session as viewable, then do not issue query, just return empty list
-        //issuing a query with no bugs loaded in session will return ALL the Bugs, which is not a good thing
-        if(!empty($_SESSION['viewable'][$module_name])){
-            $list = get_related_list(get_module_in($module_name), new Bug(), $where, $order_by, $row_offset, $limit);
-        }
     } else if ($module_name == 'KBDocuments') {
     } else if ($module_name == 'FAQ') {
     } else{
@@ -452,7 +393,7 @@ function portal_get_entry_list_limited($session, $module_name,$where, $order_by,
 }
 
 $invalid_contact_fields = array('portal_password'=>1, 'portal_active'=>1);
-$valid_modules_for_contact = array('Contacts'=>1, 'Cases'=>1, 'Notes'=>1, 'Bugs'=>1, 'Accounts'=>1, 'Leads'=>1, 'KBDocuments'=>1);
+$valid_modules_for_contact = array('Contacts'=>1, 'Cases'=>1, 'Notes'=>1, 'Accounts'=>1, 'Leads'=>1, 'KBDocuments'=>1);
 
 
 

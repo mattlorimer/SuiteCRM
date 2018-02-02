@@ -358,15 +358,6 @@ $dictionary['Project'] = array(
                 'source' => 'non-db',
                 'vname' => 'LBL_CASES',
             ),
-        'bugs' =>
-            array(
-                'name' => 'bugs',
-                'type' => 'link',
-                'relationship' => 'projects_bugs',
-                'side' => 'right',
-                'source' => 'non-db',
-                'vname' => 'LBL_BUGS',
-            ),
         'products' =>
             array(
                 'name' => 'products',

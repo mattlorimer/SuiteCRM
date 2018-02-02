@@ -33,13 +33,6 @@ class ViewFactoryTest extends PHPUnit_Framework_TestCase
         $options = $view->options;
         ViewFactory::_loadConfig($view, 'detail');
         $this->assertSame($options, $view->options);
-
-        //check with a valid module which implement it's own view config. method still must not change the view options because it needs.
-        $view = ViewFactory::loadView('area_detail_map', 'jjwg_Areas');
-        $view->module = 'jjwg_Areas';
-        $options = $view->options;
-        ViewFactory::_loadConfig($view, 'area_detail_map');
-        $this->assertSame($options, $view->options);
     }
 
     public function test_buildFromFile()

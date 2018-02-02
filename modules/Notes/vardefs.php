@@ -379,14 +379,6 @@ $dictionary['Note'] = array(
     'source'=>'non-db',
     'vname'=>'LBL_LEADS',
   ),
-  'bugs' =>
-  array (
-    'name' => 'bugs',
-    'type' => 'link',
-    'relationship' => 'bug_notes',
-    'source'=>'non-db',
-    'vname'=>'LBL_BUGS',
-  ),
   'aos_contracts' =>
   array (
 	'name' => 'aos_contracts',

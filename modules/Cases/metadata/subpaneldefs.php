@@ -194,24 +194,6 @@ $layout_defs['Cases'] = array(
                         ),
                 ),
         ),
-        'bugs' => array(
-            'order' => 40,
-            'module' => 'Bugs',
-            'sort_order' => 'desc',
-            'sort_by' => 'bug_number',
-            'subpanel_name' => 'default',
-            'get_subpanel_data' => 'bugs',
-            'add_subpanel_data' => 'bug_id',
-            'title_key' => 'LBL_BUGS_SUBPANEL_TITLE',
-            'top_buttons' => array(
-                array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-                array(
-                    'widget_class' => 'SubPanelTopSelectButton',
-                    'popup_module' => 'Bugs',
-                    'mode' => 'MultiSelect',
-                ),
-            ),
-        ),
         'project' => array(
             'order' => 110,
             'sort_order' => 'asc',

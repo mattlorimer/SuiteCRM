@@ -110,14 +110,19 @@
             <input id="bigbutton" class="btn btn-lg btn-primary btn-block" type="submit"
                    title="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_TITLE"}" tabindex="3" name="Login"
                    value="{sugar_translate module="Users" label="LBL_LOGIN_BUTTON_LABEL"}">
+            <!--
             <div id="forgotpasslink" style="cursor: pointer; display:{$DISPLAY_FORGOT_PASSWORD_FEATURE};"
                  onclick='toggleDisplay("forgot_password_dialog");'>
                 <a href='javascript:void(0)'>{sugar_translate module="Users" label="LBL_LOGIN_FORGOT_PASSWORD"}</a>
             </div>
+            -->
         </form>
         
         <form class="form-signin passform" role="form" action="index.php" method="post" name="DetailView" id="form"
               name="fp_form" id="fp_form">
+            <div  style="cursor: hand; cursor: pointer; display:{$DISPLAY_FORGOT_PASSWORD_FEATURE};" onclick='toggleDisplay("forgot_password_dialog");'>
+                <a href='javascript:void(0)'><IMG src="{sugar_getimagepath file='advanced_search.gif'}" border="0" alt="Hide Options" id="forgot_password_dialog_options">{sugar_translate module="Users" label="LBL_LOGIN_FORGOT_PASSWORD"}</a>
+            </div>
             <div id="forgot_password_dialog" style="display:none">
                 <input type="hidden" name="entryPoint" value="GeneratePassword">
                 <div id="generate_success" class='error' style="display:inline;"></div>

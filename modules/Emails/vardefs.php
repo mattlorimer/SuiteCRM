@@ -332,15 +332,6 @@ $dictionary['Email'] = array(
             'bean_name' => 'Account',
             'source' => 'non-db',
         ),
-        'bugs' => array(
-            'name' => 'bugs',
-            'vname' => 'LBL_EMAILS_BUGS_REL',
-            'type' => 'link',
-            'relationship' => 'emails_bugs_rel',
-            'module' => 'Bugs',
-            'bean_name' => 'Bug',
-            'source' => 'non-db',
-        ),
         'cases' => array(
             'name' => 'cases',
             'vname' => 'LBL_EMAILS_CASES_REL',

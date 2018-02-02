@@ -235,8 +235,6 @@ function portal_get_entry_list_filter($session, $module_name, $order_by, $select
         $sugar = new Contact();
     }else if($module_name == 'Accounts'){
         $sugar = new Account();
-    } else if($module_name == 'Bugs'){
-        $sugar = new Bug();
     } else if($module_name == 'KBDocuments' || $module_name == 'FAQ') {
         $sugar = new KBDocument();
     } else {
@@ -557,7 +555,7 @@ function portal_relate_note_to_module($session,$note_id, $module_name, $module_i
 
     $seed = new $class_name();
     $seed->retrieve($module_id);
-    if($module_name == 'Cases' || $module_name == 'Bugs') {
+    if($module_name == 'Cases') {
         $seed->note_id =  $note_id;
         $seed->save(false);
     } else {

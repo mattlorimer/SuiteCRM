@@ -208,28 +208,6 @@ class SugarWebServiceUtilv3 extends SoapHelperWebServices {
 			} //foreach
 		} //if
 
-		if($value->module_dir == 'Bugs'){
-			require_once('modules/Releases/Release.php');
-			$seedRelease = new Release();
-			$options = $seedRelease->get_releases(TRUE, "Active");
-			$options_ret = array();
-			foreach($options as $name=>$value){
-				$options_ret[] =  array('name'=> $name , 'value'=>$value);
-			}
-			if(isset($module_fields['fixed_in_release'])){
-				$module_fields['fixed_in_release']['type'] = 'enum';
-				$module_fields['fixed_in_release']['options'] = $options_ret;
-			}
-			if(isset($module_fields['release'])){
-				$module_fields['release']['type'] = 'enum';
-				$module_fields['release']['options'] = $options_ret;
-			}
-			if(isset($module_fields['release_name'])){
-				$module_fields['release_name']['type'] = 'enum';
-				$module_fields['release_name']['options'] = $options_ret;
-			}
-		}
-
 		if(isset($value->assigned_user_name) && isset($module_fields['assigned_user_id'])) {
 			$module_fields['assigned_user_name'] = $module_fields['assigned_user_id'];
 			$module_fields['assigned_user_name']['name'] = 'assigned_user_name';

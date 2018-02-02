@@ -1,15 +1,10 @@
-## SuiteCRM 7.8 LTS
-
-[![Build Status](https://travis-ci.org/salesagility/SuiteCRM.svg?branch=hotfix)](https://travis-ci.org/salesagility/SuiteCRM)
-
+## SuiteASSURED 1.0
 
 ### What's in this repository ###
 
-This is the git repository for the SuiteCRM project, the award-winning, enterprise-class open source CRM.
+This is the git repository for the SuiteASSURED project. The freedoms of open source. The security, warranties and indemnities of proprietary software.
 
-This repository has been created to allow community members to collaborate and contribute to the project, helping to develop the SuiteCRM ecosystem.
-
-### Contributing to the project ###
+### Contributing to the SuiteCRM project ###
 
 #### Security ####
 

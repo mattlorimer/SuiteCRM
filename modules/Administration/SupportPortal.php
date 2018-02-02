@@ -173,7 +173,6 @@ switch ($_REQUEST['view']) {
 								'manufacturers' => array(array('name' => 'Administration', 'anchor' => '1957376')),
 								'shippers' => array(array('name' => 'Administration', 'anchor' => '1957376')),
 								'taxrates' => array(array('name' => 'Administration', 'anchor' => '1957376')),
-								'releases' => array(array('name' => 'Administration', 'anchor' => '1868932')),
 								'timeperiods' => array(array('name' => 'Administration', 'anchor' => '1957639')),
 								'contracttypes' => array(array('name' => 'Administration', 'anchor' => '1957677')),
 								'contracttype' => array(array('name' => 'Administration', 'anchor' => '1957677')),

@@ -40,15 +40,7 @@ array (
     array (
       'LBL_PANEL_OVERVIEW' =>
       array (
-        0 => 
-        array (
-          0 => 'name',
-          1 => 
-          array (
-            'name' => 'fp_event_locations_fp_events_1_name',
-          ),
-        ),
-        1 => 
+        0 =>
         array (
           0 => 
           array (
@@ -69,7 +61,7 @@ array (
             ),
           ),
         ),
-        2 => 
+        1 =>
         array (
           0 => 
           array (
@@ -78,16 +70,6 @@ array (
                 @@FIELD@@
                 <input id="duration_hours" name="duration_hours" type="hidden" value="{$fields.duration_hours.value}">
                 <input id="duration_minutes" name="duration_minutes" type="hidden" value="{$fields.duration_minutes.value}">
-                {sugar_getscript file="modules/FP_events/duration_dependency.js"}
-                <script type="text/javascript">
-                    var date_time_format = "{$CALENDAR_FORMAT}";
-                    {literal}
-                    SUGAR.util.doWhen(function(){return typeof DurationDependency != "undefined" && typeof document.getElementById("duration") != "undefined"}, function(){
-                        var duration_dependency = new DurationDependency("date_start","date_end","duration",date_time_format);
-                        initEditView(YAHOO.util.Selector.query(\'select#duration\')[0].form);
-                    });
-                    {/literal}
-                </script>            
             ',
             'customCodeReadOnly' => '{$fields.duration_hours.value}{$MOD.LBL_HOURS_ABBREV} {$fields.duration_minutes.value}{$MOD.LBL_MINSS_ABBREV} ',
           ),
@@ -97,11 +79,11 @@ array (
             'label' => 'LBL_BUDGET',
           ),
         ),
-        3 => 
+        2 =>
         array (
           0 => 'description',
         ),
-        4 => 
+        3 =>
         array (
           0 => 'assigned_user_name',
         ),

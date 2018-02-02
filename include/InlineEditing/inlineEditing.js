@@ -114,7 +114,7 @@ function buildEditField(){
 
         if(view == "view_GanttChart" )
             view = "DetailView";
-        
+
         if(view == "DetailView"){
             var field = $(_this).attr( "field" );
             var type = $(_this).attr( "type" );

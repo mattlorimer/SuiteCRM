@@ -23,6 +23,9 @@ SUGAR.quickCompose = function() {
 		 **/
 		initComposePackage: function(c)
 		{
+			// disable email ui and quick compose
+			return;
+
 		    //Init fix for YUI 2.7.0 datatable sort.
 	        SUGAR.email2.addressBook.initFixForDatatableSort();
 
@@ -73,6 +76,9 @@ SUGAR.quickCompose = function() {
 		 **/
 		initUI: function(options)
 		{
+			// disable email ui and quick compose
+			return;
+
 			var SQ = SUGAR.quickCompose;
 			this.options = options;
 
@@ -207,6 +213,9 @@ SUGAR.quickCompose = function() {
 		 **/
 		init: function(o) {
 
+			// disable email ui and quick compose
+			return;
+
 			  if(typeof o.menu_id != 'undefined') {
 			     this.dceMenuPanel = o.menu_id;
 			  } else {
@@ -242,6 +251,9 @@ SUGAR.quickCompose = function() {
 		 **/
 		loadResources: function(o)
 		{
+			// disable email ui and quick compose
+			return;
+
 			//IE Bug fix for TinyMCE when pulling in the js file dynamically.
 		   	window.skipTinyMCEInitPhase = true;
 		    var require = ["layout", "element", "tabview", "menu","cookie","tinymce","sugarwidgets","sugarquickcompose","sugarquickcomposecss"];

@@ -92,28 +92,6 @@ function get_field_list($value, $translate=true){
 			$list[$var['name']] = $entry;
 		} //foreach
 	} //if
-
-    if (isset($value->module_dir) && $value->module_dir == 'Bugs') {
-
-		$seedRelease = new Release();
-		$options = $seedRelease->get_releases(TRUE, "Active");
-		$options_ret = array();
-		foreach($options as $name=>$value){
-			$options_ret[] =  array('name'=> $name , 'value'=>$value);
-		}
-		if(isset($list['fixed_in_release'])){
-			$list['fixed_in_release']['type'] = 'enum';
-			$list['fixed_in_release']['options'] = $options_ret;
-		}
-		if(isset($list['release'])){
-			$list['release']['type'] = 'enum';
-			$list['release']['options'] = $options_ret;
-		}
-		if(isset($list['release_name'])){
-			$list['release_name']['type'] = 'enum';
-			$list['release_name']['options'] = $options_ret;
-		}
-	}
     if (isset($value->module_dir) && $value->module_dir == 'Emails') {
         $fields = array('from_addr_name', 'reply_to_addr', 'to_addrs_names', 'cc_addrs_names', 'bcc_addrs_names');
         foreach($fields as $field){
@@ -206,28 +184,6 @@ function new_get_field_list($value, $translate=true) {
             } // else
 		} //foreach
 	} //if
-
-	if($value->module_dir == 'Bugs'){
-
-		$seedRelease = new Release();
-		$options = $seedRelease->get_releases(TRUE, "Active");
-		$options_ret = array();
-		foreach($options as $name=>$value){
-			$options_ret[] =  array('name'=> $name , 'value'=>$value);
-		}
-		if(isset($module_fields['fixed_in_release'])){
-			$module_fields['fixed_in_release']['type'] = 'enum';
-			$module_fields['fixed_in_release']['options'] = $options_ret;
-		}
-		if(isset($module_fields['release'])){
-			$module_fields['release']['type'] = 'enum';
-			$module_fields['release']['options'] = $options_ret;
-		}
-		if(isset($module_fields['release_name'])){
-			$module_fields['release_name']['type'] = 'enum';
-			$module_fields['release_name']['options'] = $options_ret;
-		}
-	}
 
 	if(isset($value->assigned_user_name) && isset($module_fields['assigned_user_id'])) {
 		$module_fields['assigned_user_name'] = $module_fields['assigned_user_id'];

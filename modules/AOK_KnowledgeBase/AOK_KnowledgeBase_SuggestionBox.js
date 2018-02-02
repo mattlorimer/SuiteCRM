@@ -42,49 +42,85 @@
  * Using Qtip to provide KnowledgeBase article overlay.
  * Using bindWithDelay to delay request until after the user has stopped typing
  */
-$(document).ready(function() {
-    //Get KnowledgeBase article suggestions based on what is typed into the name field
-    $('#name').bindWithDelay("keyup", function () {
-        var url = 'index.php?module=Cases&action=get_kb_articles';
-        var search = $('#name').val();
-        var dataString = 'search=' + search;
-        $.ajax({
-            type:"POST",
-            url:url,
-            data: dataString,
-            success: function (data) {
-                $("#suggestion_box").html(data);
-            }
-        });
 
-    }, 1000);
+var getSearchValue = function () {
+    if($('#name').val().length) {
+        return $('#name').val();
+    } else {
+        return $('#name').text();
+    }
+};
+
+var loadSuggestions = function() {
+    var url = 'index.php?module=Cases&action=get_kb_articles';
+    var search = getSearchValue();
+    var dataString = 'search=' + search;
+    $.ajax({
+        type:"POST",
+        url:url,
+        data: dataString,
+        success: function (data) {
+            $("#suggestion_box").html(data);
+        }
+    });
+};
+
+var getAppliedFields = function(possibleAppliedFields) {
+    var textFieldTypes = ['textarea', 'input'];
+    var retAppliedFields = [];
+    $.each(possibleAppliedFields, function(i, id){
+        if($('#'+id).length > 0 && textFieldTypes.indexOf($('#'+id).prop('tagName').toLowerCase()) != -1) {
+            retAppliedFields.push(id);
+        }
+    });
+    return retAppliedFields;
+};
+
+$(document).ready(function() {
+    var intervalForBindWithDelay = setInterval(function(){
+        if(typeof $('#name').bindWithDelay === 'function') {
+
+            //Get KnowledgeBase article suggestions based on what is typed into the name field
+            $('#name').bindWithDelay("keyup", function () {
+                loadSuggestions();
+            }, 1000);
+
+            clearInterval(intervalForBindWithDelay);
+        }
+    }, 300);
+
+    loadSuggestions();
+
+    var appliedFields = getAppliedFields(['resolution', 'update_text']);
+
     //open article in tool-tip on hover over suggestion box list items
     $("body").on("mouseover",'.kb_article', function () {
         var title = SUGAR.language.get('Cases', 'LBL_TOOL_TIP_BOX_TITLE');
         var url = 'index.php?module=Cases&action=get_kb_article';
         // Updates existing tool-tips content via ajax
+        var article = $(this).data( "id" );
+        var dataStuff = {
+            article: article,
+            appliedBtns: appliedFields
+        };
         if($("#suggestion_box").data('qtip') ) {
-            var article = $(this).data( "id" );
-            var dataString = 'article=' + article;
             $.ajax({
                 type:"POST",
                 url:url,
-                data: dataString,
+                data: dataStuff,
                 success: function (data) {
                     $(".qtip-content").html(data);
                 }
             });
         }
         else {//Creates new qtip tool-tip
-            var article = $(this).data( "id" );
-            var dataString = 'article=' + article;
             $("#suggestion_box").qtip({
                 content: {
                     text: "Loading...",
                     ajax:{
                         url: url, // Use href attribute as URL
                         type: 'POST', // POST or GET
-                        data: dataString, // Data to pass along with your request
+                        data: dataStuff, // Data to pass along with your request
                         success: function(data, status) {
                             // Set the content manually (required!)
                             this.set('content.text', data);
@@ -123,20 +159,53 @@ $(document).ready(function() {
             });
         }
     });
-    //Animate transfer effect from additional into resolution box
-    $("body").on("click",'#use_resolution', function () {
-        if($('#additional_info_p').text() !=  $('#resolution').val()){
-            $('#additional_info_p').effect("transfer", { to: "#resolution", className: "transfer" }, 1000, moveText);
+
+    var isTinyMCEField = function(id) {
+        return typeof window.parent.tinyMCE !== 'undefined' && !!window.parent.tinyMCE.get(id);
+    };
+
+    var getTextFieldValue = function(id) {
+        var text = null;
+        if(isTinyMCEField(id)) {
+            text = window.parent.tinyMCE.get(id).getContent({format : 'text'});
+        } else {
+            text = $('#'+id).val();
         }
+        return text;
+    };
+
+    var setTextFieldValue = function(id, text) {
+        if(isTinyMCEField(id)) {
+            window.parent.tinyMCE.get(id).setContent(text, {format : 'text'});
+        } else {
+            $('#'+id).val(text);
+        }
+    };
+
+    $.each(appliedFields, function(i, id){
+        $('body').on('click', '#use_'+id, function(){
+            if($('#additional_info_p').text() !=  getTextFieldValue(id)){
+                var sel = '[field="'+id+'"]';
+                if(!$(sel).length) {
+                    sel = '#'+id;
+                }
+                if(!$(sel).length) {
+                    throw 'input element not found: '+id;
+                } else {
+                    $('#additional_info_p').effect("transfer", {
+                        to: sel,
+                        className: "transfer"
+                    }, 1000, function () {
+                        setTimeout(function () {
+                            var text = $('#additional_info_p').text();
+                            setTextFieldValue(id, text);
+                        }, 300);
+                    });
+                }
+            }
+        });
     });
 
-    // callback function to bring text to the resolution box
-    function moveText() {
-        setTimeout(function() {
-            var text = $('#additional_info_p').text();
-            $('#resolution').val(text);
-        }, 300 );
-    };
 });
 
 

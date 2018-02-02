@@ -54,21 +54,6 @@ $moduleFilters = array(
 			),
 		),
 	),
-	'Bugs' => array(
-		'display_default' => false,
-		'fields' => array(
-			'status' => array(
-				'display_name' => 'Status',
-				'name' => 'status',
-				'vname' => 'LBL_STATUS',
-				'dbname' => 'status',
-				'custom_table' => false,
-				'type' => 'multiselect',
-				'size' => '5',
-				'dropdown' => $app_list_strings['bug_status_dom'],
-			),
-		),
-	),
 	'Calls' => array(
 		'display_default' => false,
 		'fields' => array(

@@ -1526,8 +1526,7 @@ function search_by_module($user_name, $password, $search_string, $modules, $offs
 	}
 	//  MRF - BUG:19552 - added a join for accounts' emails below
 	$query_array = array('Accounts'=>array('where'=>array('Accounts' => array(0 => "accounts.name like '{0}%'"), 'EmailAddresses' => array(0 => "ea.email_address like '{0}%'")),'fields'=>"accounts.id, accounts.name"),
-	                        'Bugs'=>array('where'=>array('Bugs' => array(0 => "bugs.name like '{0}%'", 1 => "bugs.bug_number = {0}")),'fields'=>"bugs.id, bugs.name, bugs.bug_number"),
-							'Cases'=>array('where'=>array('Cases' => array(0 => "cases.name like '{0}%'", 1 => "cases.case_number = {0}")),'fields'=>"cases.id, cases.name, cases.case_number"),
+	                        'Cases'=>array('where'=>array('Cases' => array(0 => "cases.name like '{0}%'", 1 => "cases.case_number = {0}")),'fields'=>"cases.id, cases.name, cases.case_number"),
 							'Leads'=>array('where'=>array('Leads' => array(0 => "leads.first_name like '{0}%'",1 => "leads.last_name like '{0}%'"), 'EmailAddresses' => array(0 => "ea.email_address like '{0}%'")), 'fields'=>"leads.id, leads.first_name, leads.last_name, leads.status"),
  							'Project'=>array('where'=>array('Project' => array(0 => "project.name like '{0}%'")), 'fields'=>"project.id, project.name"),
                             'ProjectTask'=>array('where'=>array('ProjectTask' => array(0 => "project.id = '{0}'")), 'fields'=>"project_task.id, project_task.name"),

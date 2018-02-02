@@ -99,17 +99,6 @@ var $selectedCategories = array();
         $this->searchFields = $dashletData['SugarFeedDashlet']['searchFields'];
         $this->columns = $dashletData['SugarFeedDashlet']['columns'];
 
-        $twitter_enabled = $this->check_enabled('twitter');
-        $facebook_enabled = $this->check_enabled('facebook');
-
-        if($facebook_enabled){
-            $this->categories["Facebook"] = "Facebook";
-        }
-
-        if($twitter_enabled){
-            $this->categories["Twitter"] = "Twitter";
-        }
-
 		$catCount = count($this->categories);
 		ACLController::filterModuleList($this->categories, false);
 		if(count($this->categories) < $catCount){
@@ -189,14 +178,6 @@ var $selectedCategories = array();
 				$regular_modules[] = 'UserFeed';
 				continue;
 			}
-            if($module == 'Facebook'){
-                $regular_modules[] = "Facebook";
-                continue;
-            }
-            if($module == 'Twitter'){
-                $regular_modules[] = 'Twitter';
-                continue;
-            }
 
             if ( in_array($module,$this->externalAPIList) ) {
                 $external_modules[] = $module;
@@ -283,10 +264,6 @@ var $selectedCategories = array();
                         $modString = string_format($modString, array($modStringSingular) );
                         $this->lvs->data['data'][$row]['NAME'] = preg_replace('/' . $modStringMatches[0] . '/', strtolower($modString), $this->lvs->data['data'][$row]['NAME']);
                     }
-                //if social then unless the user is the assigned user it wont show. IJD1986
-                if(($data['RELATED_MODULE'] == "facebook" || $data['RELATED_MODULE'] == "twitter" ) && $data['ASSIGNED_USER_ID'] != $current_user->id){
-                    unset($this->lvs->data['data'][$row]);
-                }
             }
 
             // assign a baseURL w/ the action set as DisplayDashlet
@@ -558,9 +535,6 @@ enableQS(false);
 		$ss->assign('id', $this->id);
 		$ss->assign('more_img', $moreimg);
 		$ss->assign('less_img', $lessimg);
-
-        include_once("include/social/get_feed_data.php");
-        $ss->assign('facebook', $html );
 
         if($current_user->getPreference('use_real_names') == 'on'){
             $ss->assign('user_name', $current_user->full_name);

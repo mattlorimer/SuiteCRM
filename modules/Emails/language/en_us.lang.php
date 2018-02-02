@@ -81,7 +81,6 @@ $mod_strings = array (
 	'LBL_HAS_ATTACHMENT'		=> 'Has Attachment?:',
 	'LBL_BCC'					=> 'Bcc:',
 	'LBL_BODY'					=> 'Body:',
-	'LBL_BUGS_SUBPANEL_TITLE'	=> 'Bugs',
 	'LBL_CC'					=> 'Cc:',
 	'LBL_COLON'					=> ':',
 	'LBL_COMPOSE_MODULE_NAME'	=> 'Compose Email',
@@ -224,7 +223,6 @@ $mod_strings = array (
 	'LBL_REPLY_TO_ADDRESS'		=> 'Reply-to Address',
 	'LBL_REPLY_TO_NAME'			=> 'Reply-to Name',
 
-	'LBL_LIST_BUG'				=> 'Bugs',
 	'LBL_LIST_CASE'				=> 'Cases',
 	'LBL_LIST_CONTACT'			=> 'Contacts',
 	'LBL_LIST_LEAD'				=> 'Leads',

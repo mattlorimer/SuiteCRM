@@ -53,17 +53,7 @@ $dictionary['contacts_bugs'] = array('table' => 'contacts_bugs'
     , array('name' => 'idx_contact_bug', 'type' => 'alternate_key', 'fields' => array('contact_id', 'bug_id'))
 
     )
-, 'relationships' => array(
-        'contacts_bugs' => array(
-            'lhs_module' => 'Contacts',
-            'lhs_table' => 'contacts',
-            'lhs_key' => 'id',
-            'rhs_module' => 'Bugs',
-            'rhs_table' => 'bugs',
-            'rhs_key' => 'id',
-            'relationship_type' => 'many-to-many',
-            'join_table' => 'contacts_bugs',
-            'join_key_lhs' => 'contact_id', 'join_key_rhs' => 'bug_id'))
+, 'relationships' => array()
 
 
 )

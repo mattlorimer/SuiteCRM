@@ -230,8 +230,7 @@ $vardef_meta_array = array (
 		'ex_override' => array(
 			'name' => array('users', 'emails', 'product_bundles', 'email_addresses', 'email_addresses_primary', 'emailmarketing', 'tracked_urls', 'queueitems', 'log_entries', 'contract_types', 'reports_to_link'),
 			'module' => array('Users', 'Teams',
-			    'CampaignLog',
-			    'Releases'),
+			    'CampaignLog'),
 		//end ex_override
 		)
 

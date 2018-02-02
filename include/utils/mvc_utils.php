@@ -72,7 +72,6 @@ function ajaxBannedModules(){
         'EmailMarketing',
         'CampaignLog',
         'CampaignTrackers',
-        'Releases',
         'Groups',
         'EmailMan',
         "Administration",

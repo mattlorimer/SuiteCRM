@@ -604,9 +604,6 @@ EOJS;
 				case 'Employee':
 					$ret_val = $this->addGenericModuleID($displayname, $field['name'], $field['id_name'], "Employee");
 					break;
-				case 'Releases':
-					$ret_val = $this->addGenericModuleID($displayname, $field['name'], $field['id_name'], "Releases");
-					break;
 				default:
 					if(!empty($field['massupdate'])){
 						$ret_val = $this->addGenericModuleID($displayname, $field['name'], $field['id_name'], $field['module']);

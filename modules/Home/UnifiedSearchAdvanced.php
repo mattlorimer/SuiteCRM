@@ -165,9 +165,6 @@ class UnifiedSearchAdvanced {
      *
      * Search function run when user goes to Show All and runs a search again.  This outputs the search results
      * calling upon the various listview display functions for each module searched on.
-     * 
-     * Todo: Sync this up with SugarSpot.php search method.
-     *
      *
      */
 	function search() {

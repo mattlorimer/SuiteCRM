@@ -100,6 +100,8 @@ clean_incoming_data();
 setPhpIniSettings();
 
 require_once 'sugar_version.php'; // provides $sugar_version, $sugar_db_version, $sugar_flavor
+require_once 'suitecrm_version.php';
+require_once 'suiteassured_version.php';
 require_once 'include/database/DBManagerFactory.php';
 require_once 'include/dir_inc.php';
 
@@ -175,6 +177,9 @@ if (empty($GLOBALS['installing'])) {
     $GLOBALS['sugar_flavor'] = $sugar_flavor;
     $GLOBALS['timedate'] = $timedate;
     $GLOBALS['js_version_key'] = md5($GLOBALS['sugar_config']['unique_key'].$GLOBALS['sugar_version'].$GLOBALS['sugar_flavor']);
+
+    $GLOBALS['suitecrm_version'] = $suitecrm_version;
+    $GLOBALS['suiteassured_version'] = $suiteassured_version;
 
     $db = DBManagerFactory::getInstance();
     $db->resetQueryCount();

@@ -66,16 +66,6 @@ $genericAssocFieldsArray = array('assigned_user_id' =>
                                     		),
                                     'select_field_join'  => 'id',
                                   ),
-                                  'fixed_in_release' =>
-                                  array('table_name' => 'releases',
-                                    'select_field_name' => 'name',
-                                    'select_field_join'  => 'id',
-                                  ), 
-                                  'found_in_release' =>
-                                  array('table_name' => 'releases',
-                                    'select_field_name' => 'name',
-                                    'select_field_join'  => 'id',
-                                  ),                                   
                             );
 $moduleAssocFieldsArray = array('Account' =>
                                 array('parent_id' =>

@@ -144,8 +144,6 @@ class ViewAdminsettings extends SugarView
         }
 
         $possible_feeds = SugarFeed::getAllFeedModules();
-        $possible_feeds['facebook'] = 'Facebook';
-        $possible_feeds['twitter'] = 'Twitter';
         $module_list = array();
         $userFeedEnabled = 0;
         foreach ($possible_feeds as $module) {
@@ -161,10 +159,6 @@ class ViewAdminsettings extends SugarView
                 // Fake module, need to handle specially
                 $userFeedEnabled = $currModule['enabled'];
                 continue;
-            } elseif ($module == 'Facebook' || $module == 'Twitter') {
-
-                $currModule['label'] = $module;
-
             } else {
                 $currModule['label'] = $GLOBALS['app_list_strings']['moduleList'][$module];
             }

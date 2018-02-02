@@ -118,7 +118,6 @@ class aCase extends Basic
 
     public $relationship_fields = array(
         'account_id' => 'accounts',
-        'bug_id'     => 'bugs',
         'task_id'    => 'tasks',
         'note_id'    => 'notes',
         'meeting_id' => 'meetings',

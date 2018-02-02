@@ -251,20 +251,6 @@ $layout_defs['Accounts'] = array(
                 array('widget_class' => 'SubPanelTopSelectAccountButton', 'mode' => 'MultiSelect')
             ),
         ),
-        'bugs' => array(
-            'order' => 110,
-            'sort_order' => 'desc',
-            'sort_by' => 'bug_number',
-            'module' => 'Bugs',
-            'subpanel_name' => 'default',
-            'get_subpanel_data' => 'bugs',
-            'add_subpanel_data' => 'bug_id',
-            'title_key' => 'LBL_BUGS_SUBPANEL_TITLE',
-            'top_buttons' => array(
-                array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-                array('widget_class' => 'SubPanelTopSelectButton', 'mode' => 'MultiSelect')
-            ),
-        ),
         'project' => array(
             'order' => 120,
             'sort_order' => 'asc',

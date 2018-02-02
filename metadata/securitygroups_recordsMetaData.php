@@ -24,12 +24,6 @@ $dictionary['securitygroups_records'] = array (
 			'relationship_type'=>'many-to-many',
 			'join_table'=> 'securitygroups_records', 'join_key_lhs'=>'securitygroup_id', 'join_key_rhs'=>'record_id',
 			'relationship_role_column'=>'module','relationship_role_column_value'=>'Accounts'),
-    	'securitygroups_bugs' => array(
-			'lhs_module'=> 'SecurityGroups', 'lhs_table'=> 'securitygroups', 'lhs_key' => 'id',
-			'rhs_module'=> 'Bugs', 'rhs_table'=> 'bugs', 'rhs_key' => 'id',
-			'relationship_type'=>'many-to-many',
-			'join_table'=> 'securitygroups_records', 'join_key_lhs'=>'securitygroup_id', 'join_key_rhs'=>'record_id',
-			'relationship_role_column'=>'module','relationship_role_column_value'=>'Bugs'),
     	'securitygroups_calls' => array(
 			'lhs_module'=> 'SecurityGroups', 'lhs_table'=> 'securitygroups', 'lhs_key' => 'id',
 			'rhs_module'=> 'Calls', 'rhs_table'=> 'calls', 'rhs_key' => 'id',

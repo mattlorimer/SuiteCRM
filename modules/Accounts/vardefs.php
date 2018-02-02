@@ -200,15 +200,6 @@ $dictionary['Account'] = array(
             'source' => 'non-db',
             'vname' => 'LBL_DOCUMENTS_SUBPANEL_TITLE',
         ),
-        'bugs' => array(
-            'name' => 'bugs',
-            'type' => 'link',
-            'relationship' => 'accounts_bugs',
-            'module' => 'Bugs',
-            'bean_name' => 'Bug',
-            'source' => 'non-db',
-            'vname' => 'LBL_BUGS',
-        ),
         'contacts' => array(
             'name' => 'contacts',
             'type' => 'link',

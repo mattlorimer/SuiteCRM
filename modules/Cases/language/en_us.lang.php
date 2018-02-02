@@ -55,6 +55,7 @@ $mod_strings = array(
     'LBL_SUGGESTION_BOX' => 'Suggestions',
     'LBL_NO_SUGGESTIONS' => 'No Suggestions',
     'LBL_RESOLUTION_BUTTON' => 'Resolution',
+    'LBL_UPDATE_TEXT_BUTTON' => 'Case Update',
     'LBL_SUGGESTION_BOX_STATUS' => 'Status',
     'LBL_SUGGESTION_BOX_TITLE' => 'Title',
     'LBL_SUGGESTION_BOX_REL' => 'Relevance',
@@ -64,7 +65,6 @@ $mod_strings = array(
     'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
     'LBL_ACTIVITIES_SUBPANEL_TITLE' => 'Activities',
     'LBL_ATTACH_NOTE' => 'Attach Note',
-    'LBL_BUGS_SUBPANEL_TITLE' => 'Bugs',
     'LBL_CASE_NUMBER' => 'Case Number:',
     'LBL_CASE_SUBJECT' => 'Case Subject:',
     'LBL_CASE' => 'Case:',
@@ -164,6 +164,7 @@ $mod_strings = array(
     'LBL_CONTACT_CREATED_BY_NAME' => 'Created by contact',
     'LBL_CONTACT_CREATED_BY' => 'Created by',
     'LBL_CASE_UPDATE_FORM' => 'Update attachment form',
+    'LBL_SUGGESTION' => 'Suggestion',
 );
 
 ?>

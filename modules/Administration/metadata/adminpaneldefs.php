@@ -140,49 +140,6 @@ $admin_option_defs['any']['dropdowneditor']= array('Dropdown','LBL_DROPDOWN_EDIT
 
 $admin_group_header[]= array('LBL_STUDIO_TITLE','',false,$admin_option_defs, 'LBL_TOOLS_DESC');
 
-$admin_option_defs=array();
-
-$admin_option_defs['jjwg_Maps']['config'] = array(
-    'Administration',
-    'LBL_JJWG_MAPS_ADMIN_CONFIG_TITLE',
-    'LBL_JJWG_MAPS_ADMIN_CONFIG_DESC',
-    './index.php?module=jjwg_Maps&action=config'
-);
-$admin_option_defs['jjwg_Maps']['geocoded_counts'] = array(
-    'Geocoded_Counts',
-    'LBL_JJWG_MAPS_ADMIN_GEOCODED_COUNTS_TITLE',
-    'LBL_JJWG_MAPS_ADMIN_GEOCODED_COUNTS_DESC',
-    './index.php?module=jjwg_Maps&action=geocoded_counts'
-);
-$admin_option_defs['jjwg_Maps']['geocoding_test'] = array(
-    'GeocodingTests',
-    'LBL_JJWG_MAPS_ADMIN_GEOCODING_TEST_TITLE',
-    'LBL_JJWG_MAPS_ADMIN_GEOCODING_TEST_DESC',
-    './index.php?module=jjwg_Maps&action=geocoding_test'
-);
-$admin_option_defs['jjwg_Maps']['geocode_addresses'] = array(
-    'GeocodeAddresses',
-    'LBL_JJWG_MAPS_ADMIN_GEOCODE_ADDRESSES_TITLE',
-    'LBL_JJWG_MAPS_ADMIN_GEOCODE_ADDRESSES_DESC',
-    './index.php?module=jjwg_Maps&action=geocode_addresses'
-);
-$admin_option_defs['jjwg_Maps']['address_cache'] = array(
-    'Address_Cache',
-    'LBL_JJWG_MAPS_ADMIN_ADDRESS_CACHE_TITLE',
-    'LBL_JJWG_MAPS_ADMIN_ADDRESS_CACHE_DESC',
-    './index.php?module=jjwg_Address_Cache&action=index'
-);
-
-
-$admin_group_header[] = array(
-    'LBL_JJWG_MAPS_ADMIN_HEADER',
-    '',
-    false,
-    $admin_option_defs,
-    'LBL_JJWG_MAPS_ADMIN_DESC'
-);
-
-
 $admin_option_defs = array();
 $admin_option_defs['Administration']['securitygroup_management'] = array('SecuritySuiteGroupManagement', 'LBL_MANAGE_SECURITYGROUPS_TITLE', 'LBL_MANAGE_SECURITYGROUPS', './index.php?module=SecurityGroups&action=index');
 $admin_option_defs['Administration']['securitygroup_config'] = array('SecurityGroupsManagement', 'LBL_CONFIG_SECURITYGROUPS_TITLE', 'LBL_CONFIG_SECURITYGROUPS', './index.php?module=SecurityGroups&action=config');
@@ -199,13 +156,6 @@ $admin_option_defs['Administration']['aos'] = array(
     'LBL_AOS_SETTINGS',
     'LBL_CHANGE_SETTINGS',
     './index.php?module=Administration&action=AOSAdmin'
-);
-
-$admin_option_defs['Administration']['aod'] = array(
-    'AOD',
-    'LBL_AOD_SETTINGS',
-    'LBL_CHANGE_SETTINGS_AOD',
-    './index.php?module=Administration&action=AODAdmin'
 );
 $admin_option_defs['Administration']['aop'] = array(
     'AOP',
@@ -231,8 +181,6 @@ $admin_group_header['sagility'] = array(
 
 //bugs.
 $admin_option_defs=array();
-$admin_option_defs['Bugs']['bug_tracker']= array('Releases','LBL_MANAGE_RELEASES','LBL_RELEASE','./index.php?module=Releases&action=index');
-$admin_group_header[]= array('LBL_BUG_TITLE','',false,$admin_option_defs, 'LBL_BUG_DESC');
 
 
 if(file_exists('custom/modules/Administration/Ext/Administration/administration.ext.php')){

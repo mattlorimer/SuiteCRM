@@ -235,20 +235,6 @@ $layout_defs['Contacts'] = array(
                 array('widget_class' => 'SubPanelTopSelectButton', 'mode' => 'MultiSelect')
             ),
         ),
-        'bugs' => array(
-            'order' => 90,
-            'module' => 'Bugs',
-            'sort_order' => 'desc',
-            'sort_by' => 'bug_number',
-            'subpanel_name' => 'default',
-            'get_subpanel_data' => 'bugs',
-            'add_subpanel_data' => 'bug_id',
-            'title_key' => 'LBL_BUGS_SUBPANEL_TITLE',
-            'top_buttons' => array(
-                array('widget_class' => 'SubPanelTopButtonQuickCreate'),
-                array('widget_class' => 'SubPanelTopSelectButton', 'mode' => 'MultiSelect')
-            ),
-        ),
         'contacts' => array(
             'order' => 100,
             'module' => 'Contacts',
@@ -315,27 +301,6 @@ $layout_defs['Contacts'] = array(
             'get_subpanel_data' => 'aos_contracts',
         ),
 
-        'fp_events_contacts' => array(
-            'order' => 104,
-            'module' => 'FP_events',
-            'subpanel_name' => 'default',
-            'sort_order' => 'asc',
-            'sort_by' => 'id',
-            'title_key' => 'LBL_FP_EVENTS_CONTACTS_FROM_FP_EVENTS_TITLE',
-            'get_subpanel_data' => 'fp_events_contacts',
-            'top_buttons' =>
-                array(
-                    0 =>
-                        array(
-                            'widget_class' => 'SubPanelTopButtonQuickCreate',
-                        ),
-                    1 =>
-                        array(
-                            'widget_class' => 'SubPanelTopSelectButton',
-                            'mode' => 'MultiSelect',
-                        ),
-                ),
-        ),
         'securitygroups' => array(
             'top_buttons' => array(array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'SecurityGroups', 'mode' => 'MultiSelect'),),
             'order' => 900,

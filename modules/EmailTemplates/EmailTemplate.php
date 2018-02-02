@@ -215,7 +215,6 @@ class EmailTemplate extends SugarBean
         $account = new Account();
         $lead = new Lead();
         $prospect = new Prospect();
-        $event = new FP_events();
 
 
         $loopControl = array(
@@ -230,16 +229,12 @@ class EmailTemplate extends SugarBean
             'Users' => array(
                 'Users' => $current_user,
             ),
-            'Events' => array(
-                'Events' => $event,
-            ),
         );
 
         $prefixes = array(
             'Contacts' => 'contact_',
             'Accounts' => 'account_',
             'Users' => 'contact_user_',
-            'Events' => 'event_',
         );
 
         $collection = array();

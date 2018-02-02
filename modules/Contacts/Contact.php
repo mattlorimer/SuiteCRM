@@ -156,7 +156,6 @@ class Contact extends Person {
 
     public $relationship_fields = Array(
         'account_id'        => 'accounts',
-        'bug_id'            => 'bugs',
         'call_id'           => 'calls',
         'case_id'           => 'cases',
         'email_id'          => 'emails',

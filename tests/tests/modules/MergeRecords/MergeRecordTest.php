@@ -280,24 +280,6 @@ class MergeRecordTest extends PHPUnit_Framework_TestCase
         $this->assertSame($expected, $result);
     }
 
-    public function testrelease_name_query()
-    {
-
-        //unset and reconnect Db to resolve mysqli fetch exeception
-        global $db;
-        unset($db->database);
-        $db->checkConnection();
-
-        $mergeRecord = new MergeRecord();
-
-        //test with type = like
-        $result = $mergeRecord->release_name_query('like', 'test');
-        $this->assertSame('', $result);
-
-        //test with type = start
-        $result = $mergeRecord->release_name_query('start', 'test');
-        $this->assertSame('', $result);
-    }
 
     public function testcreate_where_statement()
     {

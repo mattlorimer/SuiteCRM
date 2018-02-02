@@ -214,14 +214,6 @@ $dictionary['Contact'] = array('table' => 'contacts', 'audited' => true,
                     'vname' => 'LBL_EMAIL_ADDRESS_PRIMARY',
                     'duplicate_merge' => 'disabled',
                 ),
-            'bugs' =>
-                array(
-                    'name' => 'bugs',
-                    'type' => 'link',
-                    'relationship' => 'contacts_bugs',
-                    'source' => 'non-db',
-                    'vname' => 'LBL_BUGS',
-                ),
             'calls' =>
                 array(
                     'name' => 'calls',
@@ -510,14 +502,6 @@ $dictionary['Contact'] = array('table' => 'contacts', 'audited' => true,
                     'comment' => 'Synch to outlook?  (Meta-Data only)',
                     'studio' => 'true',
                 ),
-            'fp_events_contacts' =>
-                array(
-                    'name' => 'fp_events_contacts',
-                    'type' => 'link',
-                    'relationship' => 'fp_events_contacts',
-                    'source' => 'non-db',
-                    'vname' => 'LBL_FP_EVENTS_CONTACTS_FROM_FP_EVENTS_TITLE',
-                ),
             'aos_quotes' =>
                 array(
                     'name' => 'aos_quotes',
@@ -548,36 +532,6 @@ $dictionary['Contact'] = array('table' => 'contacts', 'audited' => true,
                     'bean_name' => 'AOS_Contracts',
                     'source' => 'non-db',
                 ),
-            'e_invite_status_fields' =>
-                array(
-                    'name' => 'e_invite_status_fields',
-                    'rname' => 'id',
-                    'relationship_fields' =>
-                        array(
-                            'id' => 'event_invite_id',
-                            'invite_status' => 'event_status_name',
-                        ),
-                    'vname' => 'LBL_CONT_INVITE_STATUS',
-                    'type' => 'relate',
-                    'link' => 'fp_events_contacts',
-                    'link_type' => 'relationship_info',
-                    'join_link_name' => 'fp_events_contacts',
-                    'source' => 'non-db',
-                    'importable' => 'false',
-                    'duplicate_merge' => 'disabled',
-                    'studio' => false,
-                ),
-            'event_status_name' =>
-                array(
-                    'massupdate' => false,
-                    'name' => 'event_status_name',
-                    'type' => 'enum',
-                    'studio' => 'false',
-                    'source' => 'non-db',
-                    'vname' => 'LBL_LIST_INVITE_STATUS_EVENT',
-                    'options' => 'fp_event_invite_status_dom',
-                    'importable' => 'false',
-                ),
             'event_invite_id' =>
                 array(
                     'name' => 'event_invite_id',
@@ -588,36 +542,6 @@ $dictionary['Contact'] = array('table' => 'contacts', 'audited' => true,
                         array(
                             'listview' => false,
                         ),
-                ),
-            'e_accept_status_fields' =>
-                array(
-                    'name' => 'e_accept_status_fields',
-                    'rname' => 'id',
-                    'relationship_fields' =>
-                        array(
-                            'id' => 'event_status_id',
-                            'accept_status' => 'event_accept_status',
-                        ),
-                    'vname' => 'LBL_CONT_ACCEPT_STATUS',
-                    'type' => 'relate',
-                    'link' => 'fp_events_contacts',
-                    'link_type' => 'relationship_info',
-                    'join_link_name' => 'fp_events_contacts',
-                    'source' => 'non-db',
-                    'importable' => 'false',
-                    'duplicate_merge' => 'disabled',
-                    'studio' => false,
-                ),
-            'event_accept_status' =>
-                array(
-                    'massupdate' => false,
-                    'name' => 'event_accept_status',
-                    'type' => 'enum',
-                    'studio' => 'false',
-                    'source' => 'non-db',
-                    'vname' => 'LBL_LIST_ACCEPT_STATUS_EVENT',
-                    'options' => 'fp_event_status_dom',
-                    'importable' => 'false',
                 ),
             'event_status_id' =>
                 array(
@@ -649,6 +573,7 @@ $dictionary['Contact'] = array('table' => 'contacts', 'audited' => true,
                     'id_name' => 'contact_id',
                     'vname' => 'LBL_AOP_CASE_UPDATES',
                 ),
+
             'joomla_account_id' =>
                 array(
                     'name' => 'joomla_account_id',

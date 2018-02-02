@@ -43,6 +43,9 @@
  * object and consumed by the client in an ajax call.
  */
 
+// disable email ui and quick compose
+return;
+
 require_once('modules/Emails/EmailUI.php');
 $em = new EmailUI();
 $out = $em->displayQuickComposeEmailFrame();

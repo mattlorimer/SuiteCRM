@@ -136,27 +136,6 @@ $layout_defs['Documents'] = array(
                         ),
                 ),
         ),
-        'bugs' => array(
-            'order' => 60,
-            'module' => 'Bugs',
-            'subpanel_name' => 'default',
-            'sort_order' => 'asc',
-            'sort_by' => 'id',
-            'title_key' => 'LBL_BUGS_SUBPANEL_TITLE',
-            'get_subpanel_data' => 'bugs',
-            'top_buttons' =>
-                array(
-                    0 =>
-                        array(
-                            'widget_class' => 'SubPanelTopButtonQuickCreate',
-                        ),
-                    1 =>
-                        array(
-                            'widget_class' => 'SubPanelTopSelectButton',
-                            'mode' => 'MultiSelect',
-                        ),
-                ),
-        ),
         'aos_contracts_documents' => array(
             'order' => 101,
             'module' => 'AOS_Contracts',

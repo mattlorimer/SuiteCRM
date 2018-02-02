@@ -39,16 +39,12 @@ $installation_scenarios = array(
                     0 => 'Prospects',         //Not enabled by default
                     1 => 'ProspectLists',    //Not enabled by default
                     2 => 'Campaigns',
-                    3 => 'FP_events',
-                    4 => 'FP_Event_Locations'
                 ),
             'modulesScenarioDisplayName' =>
                 array(
                     0 => 'Targets',
                     1 => 'Target Lists',
                     2 => 'Campaigns',
-                    3 => 'Events',
-                    4 => 'Event Locations'
                 ),
             'dashlets'=>array()
         ),

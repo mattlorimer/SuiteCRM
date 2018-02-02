@@ -206,7 +206,6 @@ $mod_strings = array(
     'LBL_COPY_ADDRESS_CHECKED_ALT' => 'Copy to Other Address',
 
     'LBL_CASES_SUBPANEL_TITLE' => 'Cases',
-    'LBL_BUGS_SUBPANEL_TITLE' => 'Bugs',
     'LBL_PROJECTS_SUBPANEL_TITLE' => 'Projects',
     'LBL_PROJECTS_RESOURCES' => 'Projects Resources',
     'LBL_TARGET_OF_CAMPAIGNS' => 'Campaigns (Target of) :',
@@ -240,13 +239,10 @@ $mod_strings = array(
     'LBL_CONTACT_HISTORY_SUBPANEL_TITLE' => 'Related Contacts\' Emails',
     'LBL_USER_SYNC' => 'User Sync',
 
-    'LBL_FP_EVENTS_CONTACTS_FROM_FP_EVENTS_TITLE' => 'Events',
-    'LBL_FP_EVENT_DELEGATES_CONTACTS_1_FROM_FP_EVENT_DELEGATES_TITLE' => 'Delegates',
-
     'LBL_AOP_CASE_UPDATES' => 'Case Updates',
-    'LBL_CREATE_PORTAL_USER' => 'Create Portal User',
-    'LBL_ENABLE_PORTAL_USER' => 'Enable Portal User',
-    'LBL_DISABLE_PORTAL_USER' => 'Disable Portal User',
+    'LBL_CREATE_PORTAL_USER' => 'Create Portal User..',
+    'LBL_ENABLE_PORTAL_USER' => 'Enable Portal User..',
+    'LBL_DISABLE_PORTAL_USER' => 'Disable Portal User..',
     'LBL_CREATE_PORTAL_USER_FAILED' => 'Failed to create portal user',
     'LBL_ENABLE_PORTAL_USER_FAILED' => 'Failed to enable portal user',
     'LBL_DISABLE_PORTAL_USER_FAILED' => 'Failed to disable portal user',

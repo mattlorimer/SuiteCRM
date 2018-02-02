@@ -109,11 +109,7 @@ $mod_strings = array (
   'LBL_OMIT_URL' => '(Omit http:// or https://)',
   'LBL_OAUTH_SAVE_NOTICE' => 'Click <b>Connect</b> to be directed to a page to provide your account information and to authorize access to the account by SuiteCRM. After connecting, you will be directed back to SuiteCRM.',
   'LBL_BASIC_SAVE_NOTICE' => 'Click <b>Connect</b> to connect this account to SuiteCRM.',
-  'LBL_ERR_FACEBOOK' => 'Facebook returned an error, and the feed cannot be displayed.',
-    'LBL_ERR_OAUTH_FACEBOOK_1' => 'Facebook authentication was not successful. To attempt authentication, please',
-    'LBL_ERR_OAUTH_FACEBOOK_2' => 'login to Facebook again',
   'LBL_ERR_NO_RESPONSE' => 'An error occurred when trying to connect to this account.',
-  'LBL_ERR_TWITTER' => 'Twitter returned an error, and the feed cannot be displayed.',
   'LBL_ERR_POPUPS_DISABLED' => 'Please enable browser popup windows or add an exception for website "{0}" to the exceptions list in order to connect.',
 
   'LBL_API_OAUTHSECRET' => 'API OAuth Secret',

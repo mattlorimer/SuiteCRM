@@ -43,6 +43,22 @@ array (
   array (
     'templateMeta' => 
     array (
+
+        'includes' =>
+            array (
+                0 =>
+                    array (
+                        'file' => 'include/javascript/bindWithDelay.js',
+                    ),
+                1 =>
+                    array (
+                        'file' => 'modules/AOK_KnowledgeBase/AOK_KnowledgeBase_SuggestionBox.js',
+                    ),
+                2 =>
+                    array (
+                        'file' => 'include/javascript/qtip/jquery.qtip.min.js',
+                    ),
+            ),
       'form' => 
       array (
         'buttons' => 
