@@ -385,5 +385,7 @@ $mod_strings = array (
 
 	'LBL_MAILBOX_ID' => 'Mailbox ID',
 	'LBL_PARENT_ID' => 'Parent ID',
+
+    'LBL_LIST_DATE_MODIFIED' => 'Last Modified',
 );
 
