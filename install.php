@@ -5,7 +5,7 @@
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2017 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2018 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -63,7 +63,7 @@ if(isset($_POST['smtp_tab_selected'])) {
  * If less than minimum we refuse to install.
  */
 if (check_php_version() === -1) {
-    $msg = 'The recommended PHP version to install SuiteCRM is ';
+    $msg = 'The recommended PHP version to install SuiteASSURED is ';
     $msg .= constant('SUITECRM_PHP_REC_VERSION').'<br />';
     $msg .= 'Although the minimum PHP version required is ';
     $msg .= constant('SUITECRM_PHP_MIN_VERSION').', ';
@@ -84,6 +84,7 @@ $GLOBALS['sql_queries'] = 0;
 require_once('include/SugarLogger/LoggerManager.php');
 require_once('sugar_version.php');
 require_once('suitecrm_version.php');
+require_once('suiteassured_version.php');
 require_once('install/install_utils.php');
 require_once('install/install_defaults.php');
 require_once('include/TimeDate.php');
@@ -118,8 +119,8 @@ if(get_magic_quotes_gpc() == 1) {
 }
 
 
-$GLOBALS['log'] = LoggerManager::getLogger('SugarCRM');
-$setup_sugar_version = $suitecrm_version;
+$GLOBALS['log'] = LoggerManager::getLogger('');
+$setup_sugar_version = $suiteassured_version;
 $install_script = true;
 
 ///////////////////////////////////////////////////////////////////////////////
