@@ -128,7 +128,6 @@ $mod_strings = array(
     'LBL_CONTACT_CREATED_BY_NAME' => 'Created by contact',
     'LBL_CONTACT_CREATED_BY' => 'Created by',
     'LBL_CASE_UPDATE_FORM' => 'Updates - Attachment form', //Form for attachments on case updates
-    'LBL_CASE_UPDATE_FORM' => 'Update attachment form',
     'LBL_SUGGESTION' => 'Suggestion',
 );
 
