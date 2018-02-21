@@ -1,11 +1,11 @@
 <?php
-if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
-/*********************************************************************************
+/**
+ *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
-
- * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
- * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
+ * Copyright (C) 2011 - 2018 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -16,7 +16,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
  * details.
  *
  * You should have received a copy of the GNU Affero General Public License along with
@@ -34,31 +34,25 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
  * these Appropriate Legal Notices must retain the display of the "Powered by
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
- * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
- * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- ********************************************************************************/
+ * reasonably feasible for technical reasons, the Appropriate Legal Notices must
+ * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ */
 
-/*********************************************************************************
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
- * Description:  Defines the English language pack for the base application.
- * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
- * All Rights Reserved.
- * Contributor(s): ______________________________________..
- ********************************************************************************/
-
-$mod_strings = array (
-	// DON'T CONVERT THESE THEY ARE MAPPINGS
-	'db_name' => 'LBL_LIST_ACCOUNT_NAME',
-	'db_website' => 'LBL_LIST_WEBSITE',
-	'db_billing_address_city' => 'LBL_LIST_CITY',
-	// END DON'T CONVERT
+$mod_strings = array(
+    // DON'T CONVERT THESE THEY ARE MAPPINGS
+    'db_name' => 'LBL_LIST_ACCOUNT_NAME',
+    'db_website' => 'LBL_LIST_WEBSITE',
+    'db_billing_address_city' => 'LBL_LIST_CITY',
+    // END DON'T CONVERT
     'LBL_DOCUMENTS_SUBPANEL_TITLE' => 'Documents',
-	// Dashlet Categories
-	'LBL_CHARTS'    => 'Charts',
-	'LBL_DEFAULT' => 'Views',
-	'LBL_MISC'    => 'Misc',
-	'LBL_UTILS'    => 'Utils',
-	// END Dashlet Categories
+    // Dashlet Categories
+    'LBL_CHARTS' => 'Charts',
+    'LBL_DEFAULT' => 'Views',
+    // END Dashlet Categories
 
 	'ACCOUNT_REMOVE_PROJECT_CONFIRM' => 'Are you sure you want to remove this account from the project?',
 	'ERR_DELETE_RECORD' => 'You must specify a record number in order to delete the account.',
@@ -179,20 +173,15 @@ $mod_strings = array (
 	'NTC_REMOVE_MEMBER_ORG_CONFIRMATION' => 'Are you sure you want to remove this record as a member organization?',
 	'LBL_ASSIGNED_USER_NAME' => 'Assigned to:',
     'LBL_PROSPECT_LIST' => 'Prospect List',
-    'LBL_ACCOUNTS_SUBPANEL_TITLE'=>'Accounts',
+    'LBL_ACCOUNTS_SUBPANEL_TITLE' => 'Accounts',
     'LBL_PROJECT_SUBPANEL_TITLE' => 'Projects',
-	'LBL_COPY' => 'Copy' /*for 508 compliance fix*/,
     //For export labels
-    'LBL_ACCOUNT_TYPE' => 'Account Type',
     'LBL_PARENT_ID' => 'Parent ID',
-    'LBL_PHONE_ALTERNATE' => 'Phone Alternate',
-    'LBL_EXPORT_ASSIGNED_USER_NAME' => 'Assigned User Name',
     // SNIP
-    'LBL_CONTACT_HISTORY_SUBPANEL_TITLE' => 'Related Contacts\' Emails',
-	'LBL_PRODUCTS_SERVICES_PURCHASED_SUBPANEL_TITLE' => 'Products and Services Purchased',
+    'LBL_PRODUCTS_SERVICES_PURCHASED_SUBPANEL_TITLE' => 'Products and Services Purchased',
 
-	'LBL_AOS_CONTRACTS' => 'Contracts',
-	'LBL_AOS_INVOICES' => 'Invoices',
-	'LBL_AOS_QUOTES' => 'Quotes',
+    'LBL_AOS_CONTRACTS' => 'Contracts',
+    'LBL_AOS_INVOICES' => 'Invoices',
+    'LBL_AOS_QUOTES' => 'Quotes',
 );
-?>
+

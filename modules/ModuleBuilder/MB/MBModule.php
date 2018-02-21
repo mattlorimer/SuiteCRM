@@ -5,7 +5,7 @@
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2017 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2018 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -212,14 +212,24 @@ class MBModule
         return $this->mblanguage->getModStrings ( $language ) ;
     }
 
-    function setModStrings($language = 'en_us', $mod_strings = array())
+    function setModStrings ($language  , $mod_strings= array())
     {
+        // set $language = 'en_us' as default
+        if (!$language) {
+            $language = 'en_us';
+        }
+
         $language .= '.lang.php';
         $this->mblanguage->strings [$language] = $mod_strings;
     }
 
-    function setLabel($language = 'en_us', $key, $value = null)
+	function setLabel ($language  , $key , $value= null)
     {
+        // set $language = 'en_us' as default
+        if (!$language) {
+            $language = 'en_us';
+        }
+
     	$language .= '.lang.php' ;
         $this->mblanguage->strings [ $language ] [ $key ] = $value ;
         //Ensure this key exists in all languages
@@ -230,8 +240,13 @@ class MBModule
         }
     }
 
-    function deleteLabel($language = 'en_us', $key = null)
+    function deleteLabel ($language  , $key= null)
     {
+        // set $language = 'en_us' as default
+        if (!$language) {
+            $language = 'en_us';
+        }
+
    		foreach ($this->mblanguage->strings as $lang => $values) {
         	if (!empty($values[$key])) {
         		unset($this->mblanguage->strings[$lang][$key]);
@@ -248,8 +263,13 @@ class MBModule
         $this->save();
     }
 
-    function getLabel($language = 'en_us', $key = null)
+    function getLabel ($language  , $key= null)
     {
+        // set $language = 'en_us' as default
+        if (!$language) {
+            $language = 'en_us';
+        }
+
         $language .= '.lang.php' ;
         if (empty ( $this->mblanguage->strings [ $language ] [ $key ] ))
         {
@@ -265,20 +285,33 @@ class MBModule
         return $this->mblanguage->getAppListStrings ( $language ) ;
     }
 
-    function setAppListStrings($language = 'en_us', $app_list_strings = array())
+    function setAppListStrings ($language  , $app_list_strings= array())
     {
+        // set $language = 'en_us' as default
+        if (!$language) {
+            $language = 'en_us';
+        }
         $language .= '.lang.php' ;
         $this->mblanguage->appListStrings [ $language ] = $app_list_strings ;
     }
 
-    function setDropDown($language = 'en_us', $key = null, $value = null)
+    function setDropDown ($language  , $key = null, $value= null)
     {
+        // set $language = 'en_us' as default
+        if (!$language) {
+            $language = 'en_us';
+        }
         $language .= '.lang.php' ;
         $this->mblanguage->appListStrings [ $language ] [ $key ] = $value ;
     }
 
-    function deleteDropDown($language = 'en_us', $key = null)
+    function deleteDropDown ($language  , $key= null)
     {
+        // set $language = 'en_us' as default
+        if (!$language) {
+            $language = 'en_us';
+        }
+
         $language .= '.lang.php' ;
         unset ( $this->mblanguage->appListStrings [ $language ] [ $key ] ) ;
     }
@@ -596,7 +629,7 @@ class MBModule
         return $this->providedSubpanels;
     }
 
-    function getTypes ()
+    static function getTypes()
     {
         $types = array ( ) ;
         $d = dir ( MB_TEMPLATES ) ;

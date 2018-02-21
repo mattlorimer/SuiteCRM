@@ -1328,6 +1328,13 @@ input[type=text] {
   border-radius: 4px;
 }
 
+input[type=number] {
+  background: $input-bg;
+  padding: 5px;
+  border: 1px solid $input-select-bg;
+  border-radius: 4px;
+}
+
 input[type=password] {
   background: $input-bg;
   padding: 5px;
@@ -1357,6 +1364,11 @@ textarea {
 }
 
 input[type=text] {
+  line-height: $input-line-height;
+  min-height: $input-line-height;
+}
+
+input[type=number] {
   line-height: $input-line-height;
   min-height: $input-line-height;
 }

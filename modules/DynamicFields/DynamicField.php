@@ -131,8 +131,13 @@ class DynamicField
      * @param $key
      * @param $value
      */
-    public function setLabel($language = 'en_us', $key = null, $value = null)
+    public function setLabel($language, $key = null, $value = null)
     {
+        // set $language = 'en_us' as default
+        if (!$language) {
+            $language = 'en_us';
+        }
+
         $params ['label_' . $key] = $value;
         require_once 'modules/ModuleBuilder/parsers/parser.label.php';
         $parser = new ParserLabel($this->module);
@@ -312,7 +317,7 @@ class DynamicField
      *
      * @return array select=>select columns, join=>prebuilt join statement
      */
-    public function getJOIN($expandedList = false, $includeRelates = false, $where = false)
+    public function getJOIN($expandedList = false, $includeRelates = false, &$where = false)
     {
         if (!$this->bean->hasCustomFields()) {
             return array(
@@ -346,7 +351,7 @@ class DynamicField
                     $relateJoinInfo = $this->getRelateJoin($field, $jtAlias . $jtCount);
                     $select .= $relateJoinInfo['select'];
                     $join .= $relateJoinInfo['from'];
-                    //bug 27654 martin
+
                     if ($where) {
                         $pattern = '/' . $field['name'] . '\slike/i';
                         $replacement = $relateJoinInfo['name_field'] . ' like';

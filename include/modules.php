@@ -1,8 +1,5 @@
 <?php
 
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
 /*
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
@@ -42,6 +39,11 @@ if (!defined('sugarEntry') || !sugarEntry) {
  * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
+
 $moduleList = array();
 // this list defines the modules shown in the top tab list of the app
 //the order of this list is the default order displayed - do not change the order unless it is on purpose
@@ -56,7 +58,8 @@ $moduleList[] = 'Contacts';
 $moduleList[] = 'Accounts';
 $moduleList[] = 'Opportunities';
 
-//$moduleList[] = 'Emails';
+$moduleList[] = 'Emails';
+$moduleList[] = 'EmailTemplates';
 $moduleList[] = 'Campaigns';
 $moduleList[] = 'Prospects';
 $moduleList[] = 'ProspectLists';
@@ -111,11 +114,11 @@ $beanList['vCals'] = 'vCal';
 $beanList['CustomFields'] = 'CustomFields';
 $beanList['Alerts'] = 'Alert';
 
-$beanList['Documents']  = 'Document';
-$beanList['DocumentRevisions']  = 'DocumentRevision';
-$beanList['Roles']  = 'Role';
+$beanList['Documents'] = 'Document';
+$beanList['DocumentRevisions'] = 'DocumentRevision';
+$beanList['Roles'] = 'Role';
 
-$beanList['Audit']  = 'Audit';
+$beanList['Audit'] = 'Audit';
 
 // deferred
 //$beanList['Queues'] = 'Queue';
@@ -198,23 +201,61 @@ $beanFiles['AOBH_BusinessHours'] = 'modules/AOBH_BusinessHours/AOBH_BusinessHour
 
 
 // added these lists for security settings for tabs
-$modInvisList = array('Administration', 'Currencies', 'CustomFields', 'Connectors',
-    'Dropdown', 'Dynamic', 'DynamicFields', 'DynamicLayout', 'EditCustomFields',
-    'Help', 'Import', 'MySettings', 'EditCustomFields', 'FieldsMetaData',
-    'UpgradeWizard', 'Trackers', 'Connectors', 'Employees', 'Calendar',
+$modInvisList = array(
+    'Administration',
+    'Currencies',
+    'CustomFields',
+    'Connectors',
+    'Dropdown',
+    'Dynamic',
+    'DynamicFields',
+    'DynamicLayout',
+    'EditCustomFields',
+    'Help',
+    'Import',
+    'MySettings',
+    'EditCustomFields',
+    'FieldsMetaData',
+    'UpgradeWizard',
+    'Trackers',
+    'Connectors',
+    'Employees',
+    'Calendar',
+    'Releases',
     'Sync',
-    'Users', 'Versions', 'LabelEditor', 'Roles', 'EmailMarketing', 'OptimisticLock', 'TeamMemberships', 'TeamSets', 'TeamSetModule', 'Audit', 'MailMerge', 'MergeRecords', 'EmailAddresses', 'EmailText',
-    'Schedulers', 'Schedulers_jobs', /*'Queues', 'EmailTemplates',*/
-    'CampaignTrackers', 'CampaignLog', 'EmailMan', 'Prospects', 'ProspectLists',
-    'Groups','InboundEmail',
-    'ACLActions', 'ACLRoles',
+    'Users',
+    'Versions',
+    'LabelEditor',
+    'Roles',
+    'EmailMarketing',
+    'OptimisticLock',
+    'TeamMemberships',
+    'TeamSets',
+    'TeamSetModule',
+    'Audit',
+    'MailMerge',
+    'MergeRecords',
+    'EmailAddresses',
+    'EmailText',
+    'Schedulers',
+    'Schedulers_jobs',
+    'CampaignTrackers',
+    'CampaignLog',
+    'EmailMan',
+    'Prospects',
+    'ProspectLists',
+    'Groups',
+    'InboundEmail',
+    'ACLActions',
+    'ACLRoles',
     'DocumentRevisions',
     'ProjectTask',
     'ModuleBuilder',
     'Alert',
-	'ResourceCalendar',
-	'AOBH_BusinessHours',
-    );
+    'ResourceCalendar',
+    'AOBH_BusinessHours',
+);
+
 $adminOnlyList = array(
     //module => list of actions  (all says all actions are admin only)
     //'Administration'=>array('all'=>1, 'SupportPortal'=>'allow'),
@@ -269,7 +310,6 @@ $GLOBALS['moduleTabMap'] = array(
     'Currencies' => 'Administration',
     'SugarFeed' => 'Administration',
     'DocumentRevisions' => 'Documents',
-    'EmailTemplates' => 'EmailTemplates',
     'EmailMarketing' => 'Campaigns',
 );
 $beanList['EAPM'] = 'EAPM';
