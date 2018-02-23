@@ -43,13 +43,45 @@
  * Using bindWithDelay to delay request until after the user has stopped typing
  */
 
+/**
+ * Search value for suggestion box
+ *
+ * @returns {string}
+ */
 var getSearchValue = function () {
-    if($('#name').val().length) {
-        return $('#name').val();
-    } else {
-        return $('#name').text();
+    var ret = '';
+
+    // search in subject
+
+    if($('#name')) {
+        if (typeof $('#name').val() !== 'undefined' && $('#name').val().length) {
+            ret = $('#name').val();
+        } else {
+            ret = $('#name').text();
+        }
     }
+
+    // also search in description
+
+    if(
+      typeof window.parent.tinyMCE !== 'undefined' &&
+      typeof window.parent.tinyMCE.get('description') !== 'undefined') {
+        ret += ( (ret ? ' ' : '') + window.parent.tinyMCE.get('description').getContent({format : 'text'}) );
+    }
+
+    // also search in description on detail view
+
+    if($('#description')) {
+        if (typeof $('#description').val() !== 'undefined' && $('#description').val().length) {
+            ret += ( (ret ? ' ' : '') + $('#description').val() );
+        } else {
+            ret += ( (ret ? ' ' : '') + $('#description').text() );
+        }
+    }
+
+    return ret;
 };
+
 
 var loadSuggestions = function() {
     var url = 'index.php?module=Cases&action=get_kb_articles';
@@ -77,6 +109,18 @@ var getAppliedFields = function(possibleAppliedFields) {
 };
 
 $(document).ready(function() {
+  
+    // searching only when the search value changed
+
+    var searchValue = '';
+    setInterval(function(){
+        var newSearchValue = getSearchValue();
+        if(searchValue != newSearchValue) {
+            searchValue = newSearchValue;
+            loadSuggestions();
+        }
+    }, 1000);
+
     var intervalForBindWithDelay = setInterval(function(){
         if(typeof $('#name').bindWithDelay === 'function') {
 
