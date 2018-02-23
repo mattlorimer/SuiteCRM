@@ -102,6 +102,16 @@ $dictionary['Reminder'] = array(
             'massupdate' => false,
             'studio' => false,
         ),
+        'date_willexecute' => array(
+            'name' => 'date_willexecute',
+            'vname' => 'LBL_DATE_WILLEXECUTE',
+            'type' => 'int',
+            'default' => -1,
+            'len' => 60,
+            'required' => false,
+            'massupdate' => false,
+            'studio' => false,
+        ),
     ),
     'indices' => array(
         array('name' => 'idx_reminder_name', 'type' => 'index', 'fields' => array('name')),
