@@ -318,7 +318,7 @@ $mod_strings = array(
     'LBL_STEP1' => 'Step 1 of 2 - Pre-Installation requirements',
     'LBL_STEP2' => 'Step 2 of 2 - Configuration',
     'LBL_STEP' => 'Step',
-    'LBL_TITLE_WELCOME' => 'Welcome to the SuiteCRM ',
+    'LBL_TITLE_WELCOME' => 'Welcome to the SuiteASSURED ',
     //welcome page variables
     'LBL_TITLE_ARE_YOU_READY' => 'Are you ready to install?',
     'REQUIRED_SYS_COMP' => 'Required System Components',
