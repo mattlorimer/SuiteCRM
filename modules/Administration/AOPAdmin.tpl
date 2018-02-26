@@ -104,8 +104,28 @@
         <tr id='joomla_url_row'>
             <td  scope="row" width="200">{$MOD.LBL_AOP_JOOMLA_URL}: </td>
             <td  >
-                <input type='text' name='joomla_url' value='{$config.joomla_url}' >
+                <div id="jurltpl" style="display: none;">
+                    <div class="jurl">
+                        <input type='text' name='joomla_urls[]' value='' ><input type="button" value="-" onclick="$(this).closest('.jurl').remove();"><br>
+                    </div>
+                </div>
+                <div id="jurls">
+                {foreach from=$config.joomla_urls  item=jurl}
+                    {if $jurl}
+                    <div class="jurl">
+                        <input type='text' name='joomla_urls[]' value='{$jurl}' ><input type="button" value="-" onclick="$(this).closest('.jurl').remove();"><br>
+                    </div>
+                    {/if}
+                {/foreach}
+                {if $config.joomla_url}
+                    <div class="jurl">
+                        <input type='text' name='joomla_urls[]' value='{$config.joomla_url}' ><input type="button" value="-" onclick="$(this).closest('.jurl').remove();"><br>
+                    </div>
+                {/if}
+                </div>
+                <input type="button" value="+" onclick="$('#jurls').append($('#jurltpl').html());">
             </td>
+
 
         </tr>
         <!--<tr>

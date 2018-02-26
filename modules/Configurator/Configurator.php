@@ -106,7 +106,7 @@ class Configurator {
 			}
 		}
 
-		$overideString = "<?php\n/***CONFIGURATOR***/\n";
+		$overrideString = "<?php\n/***CONFIGURATOR***/\n";
 
 		sugar_cache_put('sugar_config', $this->config);
 		$GLOBALS['sugar_config'] = $this->config;
@@ -134,13 +134,30 @@ class Configurator {
 					$this->config[$key] = false;
 				}
 			}
-			$overideString .= override_value_to_string_recursive2('sugar_config', $key, $val);
+			$overrideString .= override_value_to_string_recursive2('sugar_config', $key, $val);
 		}
-		$overideString .= '/***CONFIGURATOR***/';
+		$overrideString .= '/***CONFIGURATOR***/';
 
-		$this->saveOverride($overideString);
+		$overrideString = $this->cleanup($overrideString);
+
+		$this->saveOverride($overrideString);
+
 		if(isset($this->config['logger']['level']) && $this->logger) $this->logger->setLevel($this->config['logger']['level']);
 	}
+        
+        /**
+	 * Cleanup unused and deleted Joomla Portal URLs from config override contents
+	 *
+	 * @param string $overrideString
+	 * @return string
+	 */
+	private function cleanup($overrideString) {
+
+		$rets = preg_replace("/\\\$sugar_config\[\'aop\'\]\[\'joomla_urls\'\]\[\d+\] = \'\';\n/", '', $overrideString);
+
+		return $rets;
+	}
+
 
 	//bug #27947 , if previous $sugar_config['stack_trace_errors'] is true and now we disable it , we should clear all the cache.
 	function clearCache(){

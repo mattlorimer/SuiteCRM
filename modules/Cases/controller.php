@@ -52,9 +52,20 @@ class CasesController extends SugarController
         $search = trim($_POST['search']);
         $search = preg_replace('/\s+/', ' ', $search);
 
-        $relevanceCalculation = "CASE WHEN name LIKE '$search' THEN 10 
-                                ELSE 0 END + CASE WHEN name LIKE '%$search%' THEN 5 
-                                ELSE 0 END + CASE WHEN description LIKE '%$search%' THEN 2 ELSE 0 END";
+        $keys = explode(' ', $search);
+        if($keys) {
+            $relevanceQueries = array();
+            foreach ($keys as $key) {
+                $relevanceQueries[] = "( CASE WHEN name LIKE '$key' THEN 10
+                                ELSE 0 END + CASE WHEN name LIKE '%$key%' THEN 5
+                                ELSE 0 END + CASE WHEN description LIKE '%$key%' THEN 2 ELSE 0 END )";
+            }
+
+            $relevanceCalculation = implode(' + ', $relevanceQueries);
+        } else {
+            $relevanceCalculation = " 0 ";  // 0 - no results by default; 1 - all are results by default
+        }
+
 
         $query = "SELECT id, aok_knowledgebase.name, description, status, $relevanceCalculation AS relevance
                   FROM aok_knowledgebase
