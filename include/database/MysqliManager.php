@@ -1,12 +1,11 @@
 <?php
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
-/*********************************************************************************
+/**
+ *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
- * SuiteCRM is an extension to SugarCRM Community Edition developed by Salesagility Ltd.
- * Copyright (C) 2011 - 2014 Salesagility Ltd.
+ *
+ * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
+ * Copyright (C) 2011 - 2018 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -17,7 +16,7 @@ if (!defined('sugarEntry') || !sugarEntry) {
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT
  * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE.  See the GNU Affero General Public License for more
+ * FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more
  * details.
  *
  * You should have received a copy of the GNU Affero General Public License along with
@@ -35,11 +34,11 @@ if (!defined('sugarEntry') || !sugarEntry) {
  * In accordance with Section 7(b) of the GNU Affero General Public License version 3,
  * these Appropriate Legal Notices must retain the display of the "Powered by
  * SugarCRM" logo and "Supercharged by SuiteCRM" logo. If the display of the logos is not
- * reasonably feasible for  technical reasons, the Appropriate Legal Notices must
- * display the words  "Powered by SugarCRM" and "Supercharged by SuiteCRM".
- ********************************************************************************/
+ * reasonably feasible for technical reasons, the Appropriate Legal Notices must
+ * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
+ */
 
-/*********************************************************************************
+/**
  * Description: This file handles the Data base functionality for the application.
  * It acts as the DB abstraction layer for the application. It depends on helper classes
  * which generate the necessary SQL. This sql is then passed to PEAR DB classes.
@@ -89,7 +88,11 @@ if (!defined('sugarEntry') || !sugarEntry) {
  * Portions created by SugarCRM are Copyright (C) SugarCRM, Inc.
  * All Rights Reserved.
  * Contributor(s): ______________________________________..
- ********************************************************************************/
+ **/
+
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
 require_once('include/database/MysqlManager.php');
 
@@ -295,59 +298,68 @@ class MysqliManager extends MysqlManager
     {
         global $sugar_config;
 
-        if (is_null($configOptions)) {
+        if ($configOptions === null) {
             $configOptions = $sugar_config['dbconfig'];
         }
 
         if (!isset($this->database)) {
 
+            $error = $GLOBALS['app_strings']['ERR_NO_DB'] !== null ?
+                $GLOBALS['app_strings']['ERR_NO_DB'] :
+                'Could not connect to the database. Please refer to the SuiteCRM log for details';
+
+            $this->database = mysqli_init();
+
+            if (!$this->database) {
+                $GLOBALS['log']->fatal('Could not connect to DB server - mysqli_init failed');
+                if ($dieOnError) {
+                    sugar_die($error);
+                }
+
+                return false;
+            }
+
             //mysqli connector has a separate parameter for port.. We need to separate it out from the host name
-            $dbhost = $configOptions['db_host_name'];
-            $dbport = isset($configOptions['db_port']) ? ($configOptions['db_port'] == '' ? null : $configOptions['db_port']) : null;
+            $dbHost = $configOptions['db_host_name'];
+            $dbPort = !empty($configOptions['db_port']) ?  $configOptions['db_port'] : null;
+            $dbName = isset($configOptions['db_name']) ? $configOptions['db_name'] : '';
+            $dbFlags = null;
 
             $pos = strpos($configOptions['db_host_name'], ':');
             if ($pos !== false) {
-                $dbhost = substr($configOptions['db_host_name'], 0, $pos);
-                $dbport = substr($configOptions['db_host_name'], $pos + 1);
+                $dbHost = substr($configOptions['db_host_name'], 0, $pos);
+                $dbPort = substr($configOptions['db_host_name'], $pos + 1);
             }
 
-            $this->database = @mysqli_connect($dbhost, $configOptions['db_user_name'], $configOptions['db_password'],
-                isset($configOptions['db_name']) ? $configOptions['db_name'] : '', $dbport);
-            if (empty($this->database)) {
-                $GLOBALS['log']->fatal("Could not connect to DB server " . $dbhost . " as " . $configOptions['db_user_name'] . ". port " . $dbport . ": " . mysqli_connect_error());
+            if ($this->getOption('ssl')) {
+                $this->database->ssl_set($this->getOption('ssl_key'), $this->getOption('ssl_cert'),
+                    $this->getOption('ssl_ca'), $this->getOption('ssl_capath'), $this->getOption('ssl_cipher'));
+
+                $dbFlags = MYSQLI_CLIENT_SSL;
+                if ($this->getOption('ssl_no_verify')) {
+                    $dbFlags = MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT;
+                }
+            }
+
+            if (!$this->database->real_connect($dbHost, $configOptions['db_user_name'], $configOptions['db_password'],
+                $dbName, $dbPort,null, $dbFlags)) {
+
+                $GLOBALS['log']->fatal('Could not connect to DB server ' . $dbHost . ' as '
+                    . $configOptions['db_user_name'] . '. port ' . $dbPort . ': ' . mysqli_connect_error());
                 if ($dieOnError) {
-                    if (isset($GLOBALS['app_strings']['ERR_NO_DB'])) {
-                        sugar_die($GLOBALS['app_strings']['ERR_NO_DB']);
-                    } else {
-                        sugar_die("Could not connect to the database. Please refer to suitecrm.log for details (2).");
-                    }
-                } else {
-                    return false;
+                    sugar_die($error);
                 }
-            }
-        }
 
-        if (!empty($configOptions['db_name']) && !@mysqli_select_db($this->database, $configOptions['db_name'])) {
-            $GLOBALS['log']->fatal("Unable to select database {$configOptions['db_name']}: " . mysqli_connect_error());
-            if ($dieOnError) {
-                if (isset($GLOBALS['app_strings']['ERR_NO_DB'])) {
-                    sugar_die($GLOBALS['app_strings']['ERR_NO_DB']);
-                } else {
-                    sugar_die("Could not connect to the database. Please refer to suitecrm.log for details (2).");
-                }
-            } else {
                 return false;
             }
         }
 
-        // cn: using direct calls to prevent this from spamming the Logs
-
         $collation = $this->getOption('collation');
         if (!empty($collation)) {
             $names = "SET NAMES 'utf8' COLLATE '$collation'";
-            mysqli_query($this->database, $names);
+            $this->database->query($names);
         }
-        mysqli_set_charset($this->database, "utf8");
+        $this->database->set_charset('utf8');
 
         if ($this->checkError('Could Not Connect', $dieOnError)) {
             $GLOBALS['log']->info("connected to db");
