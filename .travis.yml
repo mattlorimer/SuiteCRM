@@ -4,21 +4,21 @@ os: linux
 matrix:
   fast_finish: true
   include:
-    - name: "PHP 5.6 / MySQL 5.7"
-      php: "5.6"
-      dist: xenial
+#    - name: "PHP 5.6 / MySQL 5.7"
+#      php: "5.6"
+#      dist: xenial
     - name: "PHP 7.4 / MySQL 5.7"
       php: "7.4"
       dist: xenial
     # Run composer validate to make sure the composer.json and composer.lock are in sync.
-    - name: "composer validate"
-      php: "7.2"
-      dist: xenial
-      before_script: composer install
-      script: composer validate
-    - name: "code coverage"
-      php: "7.3"
-      dist: xenial
+#    - name: "composer validate"
+#      php: "7.2"
+#      dist: xenial
+#      before_script: composer install
+#      script: composer validate
+#    - name: "code coverage"
+#      php: "7.3"
+#      dist: xenial
       script: ./vendor/bin/codecept run install --env travis-ci-hub -f --ext DotReporter; ./vendor/bin/robo code:coverage --ci; cat codeception.dist.yml; bash <(curl -s https://codecov.io/bash) -f tests/_output/coverage.xml
 
 services:
@@ -81,7 +81,7 @@ script:
 
   # Run the unit tests
   - sudo chmod -R 777 .
-  - ./vendor/bin/phpunit --stop-on-failure --stop-on-error --colors --configuration ./tests/phpunit.xml.dist ./tests/unit/phpunit
+#  - ./vendor/bin/phpunit --stop-on-failure --stop-on-error --colors --configuration ./tests/phpunit.xml.dist ./tests/unit/phpunit
   # Install OAuth2 demo data
   - mysql -u root -D automated_tests -v -e "source tests/_data/api_data.sql"
   # Install demo user data
@@ -95,7 +95,7 @@ script:
   - sudo chmod 600 Api/V8/OAuth2/p*.key
   # - sudo chown www-data:www-data Api/V8/OAuth2/p*.key
   # Run API functional tests
-  - ./vendor/bin/codecept run tests/api/V8/ -f --ext DotReporter
+  - ./vendor/bin/codecept run tests/api/V8/ -vvv -f --ext DotReporter
   # RUN Basic Acceptance test
   - echo "\$sugar_config['imap_test'] = true;" >> config_override.php
   - ./vendor/bin/codecept run acceptance --env travis-ci-hub -f --ext DotReporter
