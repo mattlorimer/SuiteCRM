@@ -93,12 +93,12 @@ script:
   - openssl genrsa -out Api/V8/OAuth2/private.key 2048
   - openssl rsa -in Api/V8/OAuth2/private.key -pubout -out Api/V8/OAuth2/public.key
   - sudo chmod 600 Api/V8/OAuth2/p*.key
-  # - sudo chown www-data:www-data Api/V8/OAuth2/p*.key
+  - sudo chown www-data:www-data Api/V8/OAuth2/p*.key
   # Run API functional tests
   - ./vendor/bin/codecept run tests/api/V8/ -vvv -f --ext DotReporter
   # RUN Basic Acceptance test
-  - echo "\$sugar_config['imap_test'] = true;" >> config_override.php
-  - ./vendor/bin/codecept run acceptance --env travis-ci-hub -f --ext DotReporter
+#  - echo "\$sugar_config['imap_test'] = true;" >> config_override.php
+#  - ./vendor/bin/codecept run acceptance --env travis-ci-hub -f --ext DotReporter
 
 after_script:
   - ./build/push_output.sh
