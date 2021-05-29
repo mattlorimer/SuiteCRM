@@ -251,11 +251,12 @@ class ApiTester extends Actor
         ]);
 
         $response = json_decode($this->grabResponse(), true);
-        $this->setHeader('Authorization', sprintf('%s %s', $response['token_type'], $response['access_token']));
-        $this->setHeader('Content-Type', BaseController::MEDIA_TYPE);
-
+       
         $this->seeResponseCodeIs(200);
         $this->canSeeResponseIsJson();
+
+        $this->setHeader('Authorization', sprintf('%s %s', $response['token_type'], $response['access_token']));
+        $this->setHeader('Content-Type', BaseController::MEDIA_TYPE);
     }
 
     /**
