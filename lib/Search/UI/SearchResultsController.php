@@ -191,12 +191,33 @@ class SearchResultsController extends Controller
                 $viewList->module = $module;
 
                 $metaDataFile = $viewList->getMetaDataFile();
-                /** @noinspection PhpIncludeInspection */
-                require($metaDataFile);
+                if (!empty($metaDataFile)) {
+                    require($metaDataFile);
+                } else {
+                    $listViewDefs[$module] = $this->getDefaultListView();
+                }
             }
         }
 
         return $listViewDefs;
+    }
+
+    /**
+     * @return array[]
+     */
+    protected function getDefaultListView(): array
+    {
+        return [
+            'NAME' => [
+                'width' => '32',
+                'default' => true,
+                'link' => true
+            ],
+            'DATE_ENTERED' => [
+                'width' => '10',
+                'default' => true
+            ],
+        ];
     }
 
     /**
